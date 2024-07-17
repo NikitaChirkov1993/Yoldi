@@ -1,0 +1,8 @@
+.btn {
+    border: 1px solid var(--strokes-primary);
+    border-radius: 5px;
+    padding: 7px 33px;
+    width: 114px;
+    height: 40px;
+    background: var(--background-primary);
+}
