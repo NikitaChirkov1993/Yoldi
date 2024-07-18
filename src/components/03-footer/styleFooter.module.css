@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--strokes-secondady);
+    padding: 20px 40px;
+    min-height: 72px;
+    background: var(--background-primary);
+}
+
+.footer__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--gray);
+    margin-right: 5px;
+}
+
+.footer__btn {
+    font-weight: 500;
+    color: var(--txt-color);
+    background: inherit;
+
+    &:active {
+        opacity: 0.1;
+        transition: all 0.1s ease-in-out;
+    }
+}

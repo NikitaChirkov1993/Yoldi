@@ -1,4 +1,4 @@
-.wrapper {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,4 +21,10 @@
     line-height: 160%;
     color: var(--txt-color);
     max-width: 225px;
+}
+
+@media only screen and (max-width: 550px) {
+    .text {
+        display: none;
+    }
 }
