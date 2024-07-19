@@ -1,0 +1,27 @@
+.wrapper__input {
+    position: relative;
+    display: flex;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    padding: 12px 20px;
+    max-width: 330px;
+    margin-bottom: 15px;
+}
+
+.icon {
+    fill: var(--txt-color);
+    margin-right: 10px;
+}
+
+.input__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    color: var(--gray);
+}
+
+.icon__btn_eye {
+    position: absolute;
+    background: none ;
+    right: 20px;
+}

@@ -1,0 +1,24 @@
+.form {
+    position: relative;
+    max-width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--strokes-secondady);
+    border-radius: 5px;
+    padding: 30px;
+    background: var(--background-primary);
+}
+
+.form__title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 140%;
+    color: var(--txt-color);
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 520px) {
+    .form {
+        width: 100%;
+        border: none;
+    }
+}

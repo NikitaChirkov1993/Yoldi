@@ -1,3 +1,13 @@
 .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex:1;
+    background: var(--background-secondary);
+}
+
+@media only screen and (max-width: 520px) {
+    .main {
+        background: var(--background-primary);
+    }
 }

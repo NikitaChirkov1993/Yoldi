@@ -2,7 +2,7 @@
 import style from "./styleHeader.module.css";
 import Image from "next/image";
 import logo from './../../../public/img/logo-wrapper.jpg';
-import ButtonHeader from "../UI/ButtonHeader/ButtonHeader";
+import ButtonHeader from "../UI/buttonHeader/ButtonHeader";
 import HeaderNameImg from "../headerNameImg/HeaderNameImg";
 const Header = () => {
     function handleBtn() {
@@ -19,8 +19,8 @@ const Header = () => {
                 />
                 <p className={style.text}>Разрабатываем и запускаем сложные веб проекты</p>
             </div>
-            <HeaderNameImg/>
-            {/* <ButtonHeader onClick={handleBtn}>Войти</ButtonHeader> */}
+            {/* <HeaderNameImg/> */}
+            <ButtonHeader onClick={handleBtn}>Войти</ButtonHeader>
 
         </header>
      );
