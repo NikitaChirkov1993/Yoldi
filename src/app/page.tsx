@@ -6,8 +6,8 @@ const Home = () => {
   return (
     <div className="wrapper__yoldi">
       <Header />
-      <Main />
-      <Footer/>
+      <Main flag={true} />
+      <Footer flagfooter={true} />
     </div>
 
 

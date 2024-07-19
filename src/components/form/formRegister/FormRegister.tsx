@@ -4,6 +4,7 @@ import style from "./styleFormRegister.module.css"
 import InputEmail from "@/components/UI/inputForm/InputEmail";
 import InputPassword from "@/components/UI/inputForm/InputPassword";
 import ButtonForm from "@/components/UI/buttonForm/ButtonForm";
+import Link from "next/link";
 const FormRegister = () => {
     return (
         <form action="" className={style.form}>
@@ -11,7 +12,10 @@ const FormRegister = () => {
             <InputNameRegister />
             <InputEmail />
             <InputPassword />
-            <ButtonForm>Создать аккаунт</ButtonForm>
+            <Link href="/login">
+                <ButtonForm>Создать аккаунт</ButtonForm>
+            </Link>
+
         </form>
      );
 }

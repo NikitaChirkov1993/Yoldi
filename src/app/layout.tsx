@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./../style/globals.css";
 import "./../style/resetcss.css";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

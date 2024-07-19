@@ -1,9 +1,12 @@
+import FormLogin from "../form/formLogin/FormLogin";
 import FormRegister from "../form/formRegister/FormRegister";
 import style from "./styleMain.module.css"
-const Main = () => {
+const Main = ({flag}) => {
     return (
         <main className={style.main} >
-            <FormRegister/>
+            {flag ?  <FormRegister/> : <FormLogin/> }
+
+
         </main>
      );
 }
