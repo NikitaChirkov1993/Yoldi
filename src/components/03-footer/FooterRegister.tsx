@@ -5,7 +5,7 @@ const FooterRegister = () => {
     return (
         <>
             <Link href="/register">
-                <button className={style.footer__btn}>Зарегестрроваться</button>
+                <button className={style.footer__btn}>Зарегестрироваться</button>
             </Link>
         </>
     );
