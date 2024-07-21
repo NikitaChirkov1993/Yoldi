@@ -1,6 +1,6 @@
 import Link from "next/link";
 import style from "./styleFooter.module.css";
-const FooterTrue = () => {
+const FooterLogin = () => {
     return (
         <>
             <Link href="/login">
@@ -10,4 +10,4 @@ const FooterTrue = () => {
     );
 };
 
-export default FooterTrue;
+export default FooterLogin;

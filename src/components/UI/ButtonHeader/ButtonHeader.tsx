@@ -4,7 +4,6 @@ import style from "./ButtonHeader.module.css"
 
  export interface IFormFieldProps {
      children: string ;
-     onClick: () => void;
   }
 
 const ButtonHeader: FC<IFormFieldProps> = ({children,...props}) => {

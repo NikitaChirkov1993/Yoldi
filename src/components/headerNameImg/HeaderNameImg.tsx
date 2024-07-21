@@ -13,10 +13,10 @@ const HeaderNameImg = () => {
 
     return (
         <div className={style.header__info_right}>
-            <p className={style.name}>{ name }</p>
             <div className={style.img}>
                 <div className={style.imges}>{ letter }</div>
             </div>
+            <p className={style.name}>{ name }</p>
         </div>
      );
 }

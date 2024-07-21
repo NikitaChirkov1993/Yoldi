@@ -1,11 +1,21 @@
-import FooterFalse from "./FooterFalse";
-import FooterTrue from "./FooterTrue";
+import FooterRegister from "./FooterRegister";
+import FooterLogin from "./FooterLogin";
 import style from "./styleFooter.module.css"
 const Footer = ({flagfooter}) => {
     return (
         <footer className={style.footer}>
-            <div className={style.footer__text}>Уже есть аккаунт?</div>
-            {flagfooter ? <FooterTrue/> : <FooterFalse/>}
+
+            {flagfooter ?
+                <>
+                    <div className={style.footer__text}>Уже есть аккаунт?</div>  <FooterLogin />
+                </>
+
+                :
+                <>
+                    <div className={style.footer__text}>Ещё нет аккаунта?</div>  <FooterRegister />
+                </>
+
+            }
         </footer>
      );
 }

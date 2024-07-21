@@ -3,8 +3,10 @@
     justify-content: space-between;
     align-items: center;
     min-height: 80px;
-    padding: 20px;
+    padding: 20px 40px;
     background: var(--background-primary);
+    border-bottom: 1px solid var(--strokes-secondady);
+
 }
 
 .left__img {
@@ -12,6 +14,7 @@
     width: 80px;
     height: 50px;
     margin-right: 20px ;
+    cursor: pointer;
 }
 
 .text {

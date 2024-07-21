@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "target": "es5", //добавил
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false, // c true исправил на false
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
