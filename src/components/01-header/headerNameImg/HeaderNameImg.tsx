@@ -1,6 +1,4 @@
-import { log } from "console";
 import style from "./styleHeaderNameImg.module.css"
-import { join } from "path";
 
 const HeaderNameImg = () => {
 

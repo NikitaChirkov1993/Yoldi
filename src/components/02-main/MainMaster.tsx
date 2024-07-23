@@ -4,7 +4,7 @@ import UserItem from "../userItem/UserItem";
 import UserList from "../userList/UserList";
 import style from "./styleMain.module.css";
 import { api } from "@/api/api";
-import { log } from "console";
+import Link from "next/link";
 
 const MainMaster = () => {
     const [data, setData] = useState([]);
@@ -28,13 +28,15 @@ const MainMaster = () => {
                 <h1 className={style.title__master}>Список аккаунтов</h1>
                 <UserList>
                     {data.map((item) =>
-                        <UserItem
+                        <Link href="/account/guest">
+                            <UserItem
                             name={item.name}
                             email={item.email}
                             key={item.slug}
                             image={item.image}
-
                         />
+                        </Link>
+
                     )}
 
                 </UserList>

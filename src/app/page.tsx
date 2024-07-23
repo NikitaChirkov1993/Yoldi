@@ -11,7 +11,7 @@ const Home = () => {
         <div className="wrapper__yoldi">
             <Header />
             <MainMaster />
-            <Footer/>
+            <Footer flagfooter={true}/>
 
         </div>
     );

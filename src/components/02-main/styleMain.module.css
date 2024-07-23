@@ -14,8 +14,6 @@
 
 .main__master {
     flex: 1;
-    /* flex-grow: 1; */
-    /* flex-direction: column; */
     padding-top: 50px;
     background: var(--background-primary);
 }
