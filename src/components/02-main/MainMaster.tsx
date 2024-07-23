@@ -28,13 +28,12 @@ const MainMaster = () => {
                 <h1 className={style.title__master}>Список аккаунтов</h1>
                 <UserList>
                     {data.map((item) =>
-                        <Link href="/account/guest">
+                        <Link key={item.slug} href="/account/guest">
                             <UserItem
                             name={item.name}
                             email={item.email}
-                            key={item.slug}
                             image={item.image}
-                        />
+                            />
                         </Link>
 
                     )}

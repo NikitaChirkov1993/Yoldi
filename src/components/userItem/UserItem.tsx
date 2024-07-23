@@ -2,19 +2,13 @@
 import classNames from "classnames";
 import Image from "next/image";
 import style from "./styleUserItem.module.css";
-// import imgtest from './../../../public/img/logo-wrapper.jpg'
+import  {getSplitName} from "./../utilit/utilit"
 
 const UserItem = (props) => {
-    function headerName() {
-        const name = props.name;
-        const letter = name.split("")[0];
-        const email = props.email;
-        return { name, letter, email };
-    }
-    const { name, letter, email } = headerName();
+
+    const { name, letter } = getSplitName(props.name)
 
     const classEmailactive = classNames(style.item__rigt_email, style.active_email);
-
 
     return (
         <li className={style.item}>
@@ -35,10 +29,10 @@ const UserItem = (props) => {
                 </div>
                 <div className={style.wrapper__name_email}>
                     <p className={style.item__name}>{name}</p>
-                    <p className={classEmailactive}>{email}</p>
+                    <p className={classEmailactive}>{props.email}</p>
                 </div>
             </div>
-            <p className={style.item__rigt_email}>{email}</p>
+            <p className={style.item__rigt_email}>{props.email}</p>
         </li>
     );
 };

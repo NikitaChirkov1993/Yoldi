@@ -9,6 +9,9 @@
 }
 
 .block__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     left: 240px;
     top: 150px;
@@ -17,6 +20,11 @@
     background-color: var(--background-secondary);
     border-radius: 999999px;
     border: 1px solid var(--strokes-secondady);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--txt-color);
 }
 
 .mainAccount__container {
