@@ -29,12 +29,14 @@
     border: 1px solid var(--strokes-secondady);
     border-radius: 999999px;
     background: var(--background-secondary);
+    overflow: hidden;
 
     .item__imges {
         font-weight: 400;
         font-size: 18px;
         line-height: 140%;
         color: var(--txt-color);
+
     }
 }
 
@@ -46,14 +48,31 @@
     color: var(--txt-color);
 }
 
-.item__rigt_text {
+.wrapper__name_email {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.item__rigt_email {
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
     color: var(--gray);
 }
 
-.header__info_right {
-    display: flex;
-    align-items: center;
+.active_email {
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 520px) {
+    .item__rigt_email  {
+        display: none;
+
+    }
+    .active_email {
+        display: block;
+    }
 }
