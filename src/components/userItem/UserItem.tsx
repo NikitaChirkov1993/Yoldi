@@ -12,6 +12,7 @@ const UserItem = (props) => {
         return { name, letter, email };
     }
     const { name, letter, email } = headerName();
+
     const classEmailactive = classNames(style.item__rigt_email, style.active_email);
 
 

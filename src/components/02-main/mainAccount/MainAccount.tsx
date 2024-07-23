@@ -1,6 +1,8 @@
 import style from "./styleMainAccount.module.css";
 
 const MainAccount = () => {
+
+
     return (
         <main className={style.mainAccount}>
             <div className={style.block__imges}>
