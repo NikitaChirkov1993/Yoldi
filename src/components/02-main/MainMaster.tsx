@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const MainMaster = () => {
     const [data, setData] = useState([]);
-    // console.log(data);
+
 
 
     useEffect(() => {
@@ -21,6 +21,7 @@ const MainMaster = () => {
 
         fetchData();
     }, []);
+    // console.log(data);
 
     return (
         <main className={style.main__master}>
@@ -28,7 +29,7 @@ const MainMaster = () => {
                 <h1 className={style.title__master}>Список аккаунтов</h1>
                 <UserList>
                     {data.map((item) =>
-                        <Link key={item.slug} href="/account/guest">
+                        <Link key={item.slug} href={`/account/guest/${item.slug}`}>
                             <UserItem
                             name={item.name}
                             email={item.email}

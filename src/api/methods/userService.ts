@@ -11,9 +11,9 @@ export class UserService {
         }
     };
 
-    getUser = async (params: {slug: string}) => {
+    getUser = async (slug: string) => {
         try {
-            const response = await fetch(`${API}/user/${params.slug}`);
+            const response = await fetch(`${API}/user/${slug}`);
             const data = await response.json();
             return data;
         } catch (e) {
