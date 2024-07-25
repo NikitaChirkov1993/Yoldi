@@ -1,26 +1,68 @@
-import style from "./styleMainAccount.module.css";
+// import yoldi from "./../../../../public/img/logo-wrapper.jpg";
+import classNames from 'classnames';
 import { getSplitName } from "./../../utilit/utilit";
+import style from "./styleMainAccount.module.css";
 
-const MainAccount = () => {
-    const naming = "Никита";
-    const { name, letter } = getSplitName(naming);
+const MainAccount = ({nameAccount,emailAccount,description,imgAccount,coverAccount}) => {
+    const { name, letter } = getSplitName(nameAccount);
+    console.log(imgAccount,"imgAccount");
+    console.log(coverAccount, "coverAccount");
+    const classCoverNO = classNames(style.block__cover_global , style.block__coverNO);
+    const classImgNO = classNames(style.block__img_global, style.block__imgNO);
+
+    const classCoverYES = classNames(style.block__cover_global , style.block__coverYES);
+    const classImgYES = classNames(style.block__img_global, style.block__imgYES);
+
+
 
 
 
     return (
         <main className={style.mainAccount}>
-            <div className={style.block__imges}>
-                <div className={style.block__img}>
-                    {letter}
+            {!coverAccount && !imgAccount && (
+                <div className={ classCoverNO }>
+                    <div className={classImgNO}>
+                        {letter}
+                    </div>
                 </div>
-            </div>
+            )}
+
+            {!coverAccount && imgAccount && (
+                <div className={ classCoverNO }>
+                    <div
+                        style={{ backgroundImage: `url(${imgAccount.url})` }}
+                        className={classImgYES}
+                    >
+                    </div>
+                </div>
+            )}
+
+            {coverAccount && !imgAccount && (
+                <div
+                    style={{ backgroundImage: `url(${coverAccount.url})` }}
+                    className={classCoverYES}
+                >
+                    <div className={classImgNO}>
+                        {letter}
+                    </div>
+                </div>
+            )}
+
+            {coverAccount && imgAccount && (
+                <div style={{backgroundImage:`url(${coverAccount.url})`}} className={ classCoverYES }>
+                    <div style={{backgroundImage:`url(${imgAccount.url})`}} className={classImgYES}>
+                    </div>
+                </div>
+            )}
+
             <div className={style.mainAccount__container}>
                 <h2 className={style.mainAccount__title}>{ name }</h2>
-                <div className={style.mainAccount__email}>123@gmail.com</div>
-                <div className={style.mainAccount__text}>
-                    Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент,
-                    который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
-                </div>
+                <div className={style.mainAccount__email}>{emailAccount}</div>
+                {description ?
+                    <div className={style.mainAccount__text}>{description}</div>
+                    :
+                    <div className={style.mainAccount__text}></div>
+                }
             </div>
         </main>
     );

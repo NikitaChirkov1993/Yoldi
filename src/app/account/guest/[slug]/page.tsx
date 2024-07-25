@@ -18,12 +18,24 @@ const Account = ({ params }: {params: {slug: string}}) => {
 
         fetchData();
     }, []);
+    // console.log(data,"data");
+
 
 
     return (
         <div className="wrapper__yoldi">
-            <Header/>
-            <MainAccount/>
+            <Header />
+            {data ?
+                <MainAccount
+                    nameAccount={data.name}
+                    emailAccount={data.email}
+                    description={data.description}
+                    imgAccount={data.image}
+                    coverAccount={data.cover}
+                />
+                :
+                null}
+
         </div>
     );
 };
