@@ -1,8 +1,8 @@
 "use client"
 
 import { api } from "@/api/api";
-import Header from "@/components/01-header/Header";
-import MainAccount from "@/components/02-main/mainAccount/MainAccount";
+import Header from "@/components/header/Header";
+import MainAccount from "@/components/main/mainAccount/MainAccount";
 import { useEffect, useState } from "react";
 
 const Account = ({ params }: {params: {slug: string}}) => {

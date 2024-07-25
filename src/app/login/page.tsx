@@ -1,6 +1,6 @@
-import Header from "@/components/01-header/Header";
-import Main from "@/components/02-main/Main";
-import Footer from "@/components/03-footer/Footer";
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
+import Main from "@/components/main/Main";
 
 const Login = () => {
     return (

@@ -1,9 +1,8 @@
 "use client";
 
-import Header from "@/components/01-header/Header";
-import Main from "@/components/02-main/Main";
-import MainMaster from "@/components/02-main/MainMaster";
-import Footer from "@/components/03-footer/Footer";
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
+import MainMaster from "@/components/main/MainMaster";
 
 
 const Home = () => {

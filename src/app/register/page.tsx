@@ -1,6 +1,6 @@
-import Main from "@/components/02-main/Main";
-import Header from "./../../components/01-header/Header"
-import Footer from "@/components/03-footer/Footer";
+import Footer from "@/components/footer/Footer";
+import Main from "@/components/main/Main";
+import Header from "../../components/header/Header";
 const Register = () => {
     return (
         <div className="wrapper__yoldi">
