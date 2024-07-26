@@ -5,7 +5,7 @@ import ButtonHeader from "../ui/buttonHeader/ButtonHeader";
 import logo from "./../../../public/img/logo-wrapper.jpg";
 import style from "./Header.module.css";
 
-const Header = () => {
+const HeaderAccountGuest = () => {
 
     return (
         <header className={style.header}>
@@ -16,7 +16,6 @@ const Header = () => {
 
                 <p className={style.text}>Разрабатываем и запускаем сложные веб проекты</p>
             </div>
-            {/* <HeaderNameImg/> */}
             <Link href="/login">
                 <ButtonHeader>Войти</ButtonHeader>
             </Link>
@@ -24,4 +23,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default HeaderAccountGuest;

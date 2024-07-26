@@ -1,20 +1,20 @@
-import style from "./styleHeaderNameImg.module.css"
+import style from "./HeaderNameImg.module.css";
 
 const HeaderNameImg = () => {
 
-    function headerName() {
-        const name = "Никита";
-        const letter = name.split("")[0];
-        return { name, letter }
+    function headerName1() {
+        const name1 = "Никита";
+        const letter1 = name1.split("")[0];
+        return { name1, letter1 }
     };
-    const { name, letter } = headerName();
+    const { name1, letter1 } = headerName1();
 
     return (
         <div className={style.header__info_right}>
+            <p className={style.name}>{ name1 }</p>
             <div className={style.img}>
-                <div className={style.imges}>{ letter }</div>
+                <div className={style.imges}>{ letter1 }</div>
             </div>
-            <p className={style.name}>{ name }</p>
         </div>
      );
 }

@@ -1,9 +1,9 @@
 "use client"
 
-import { api } from "@/api/api";
-import Header from "@/components/header/Header";
-import MainAccountGuest from "@/components/main/MainAccountGuest/MainAccountGuest";
 import { useEffect, useState } from "react";
+import { api } from "@/api/api";
+import HeaderAccountGuest from "@/components/header/HeaderAccountGuest";
+import MainAccountGuest from "@/components/main/MainAccountGuest/MainAccountGuest";
 
 const AccountGuest = ({ params }: {params: {slug: string}}) => {
     const [data, setData] = useState();
@@ -18,13 +18,12 @@ const AccountGuest = ({ params }: {params: {slug: string}}) => {
 
         fetchData();
     }, []);
-    // console.log(data,"data");
 
 
 
     return (
         <div className="wrapper__yoldi">
-            <Header />
+            <HeaderAccountGuest />
             {data ?
                 <MainAccountGuest
                     nameAccount={data.name}
