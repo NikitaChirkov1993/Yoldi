@@ -9,7 +9,16 @@ const nextConfig = {
         port: '',
       }
     ]
-  }
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/account/guest',
+        permanent: true,
+      },
+    ];
+  },
 
 };
 

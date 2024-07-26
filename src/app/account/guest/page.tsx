@@ -10,7 +10,7 @@ const Home = () => {
         <div className="wrapper__yoldi">
             <HeaderAccountGuest />
             <MainGlobal />
-            <Footer flagfooter={true}/>
+            <Footer flagFooter={true}/>
         </div>
     );
 };

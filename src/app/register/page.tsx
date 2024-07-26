@@ -7,7 +7,7 @@ const Register = () => {
         <div className="wrapper__yoldi">
             <HeaderAccountGuest />
             <MainLoginRegister flag={true} />
-            <Footer flagfooter={true} />
+            <Footer flagFooter={true} />
         </div>
     );
 };

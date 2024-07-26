@@ -1,11 +1,12 @@
 import style from "./Footer.module.css";
 import FooterLogin from "./FooterLogin";
 import FooterRegister from "./FooterRegister";
-const Footer = ({flagfooter}) => {
+
+const Footer = ({ flagFooter }) => {
     return (
         <footer className={style.footer}>
 
-            {flagfooter ?
+            {flagFooter ?
                 <>
                     <div className={style.footer__text}>Уже есть аккаунт?</div>  <FooterLogin />
                 </>

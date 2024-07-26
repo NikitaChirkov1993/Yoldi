@@ -29,7 +29,7 @@ const MainGlobal = () => {
                 <h1 className={style.title__master}>Список аккаунтов</h1>
                 <UserList>
                     {data.map((item) =>
-                        <Link key={item.slug} href={`/account/guest/${item.slug}`}>
+                        <Link key={item.slug} href={`/account/guestUsers/${item.slug}`}>
                             <UserItem
                             name={item.name}
                             email={item.email}

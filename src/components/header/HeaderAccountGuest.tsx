@@ -10,7 +10,7 @@ const HeaderAccountGuest = () => {
     return (
         <header className={style.header}>
             <div className={style.left}>
-                <Link href="/">
+                <Link href="/account/guest">
                     <Image  alt="Логотип" className={style.left__img} src={logo} priority />
                 </Link>
 

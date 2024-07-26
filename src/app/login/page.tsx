@@ -7,7 +7,7 @@ const Login = () => {
         <div className="wrapper__yoldi">
             <HeaderAccountGuest />
             <MainLoginRegister flag={false}/>
-            <Footer flagfooter={false} />
+            <Footer flagFooter={false} />
         </div>
     );
 };

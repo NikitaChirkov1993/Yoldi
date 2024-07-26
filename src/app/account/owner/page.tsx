@@ -4,7 +4,7 @@ import HeaderAccountOwner from "@/components/header/HeaderAccountOwner";
 import MainGlobal from "@/components/main/MainGlobal";
 
 
-const AccountOwner = () => {
+const AccountOwnerUsers = () => {
 
 
     return (
@@ -15,4 +15,4 @@ const AccountOwner = () => {
      );
 }
 
-export default AccountOwner;
+export default AccountOwnerUsers;
