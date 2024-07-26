@@ -1,5 +1,5 @@
 import Link from "next/link";
-import style from "./styleFooter.module.css";
+import style from "./Footer.module.css";
 
 const FooterRegister = () => {
     return (

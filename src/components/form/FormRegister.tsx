@@ -4,7 +4,7 @@ import InputEmail from "@/components/ui/inputForm/InputEmail";
 import InputNameRegister from "@/components/ui/inputForm/InputNameRegister";
 import InputPassword from "@/components/ui/inputForm/InputPassword";
 import Link from "next/link";
-import style from "./styleFormRegister.module.css";
+import style from "./Form.module.css";
 const FormRegister = () => {
     return (
         <form action="" className={style.form}>

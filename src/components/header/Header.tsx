@@ -1,10 +1,9 @@
 // "use client";
-import style from "./styleHeader.module.css";
 import Image from "next/image";
-import logo from "./../../../public/img/logo-wrapper.jpg";
-import ButtonHeader from "../ui/buttonHeader/ButtonHeader";
-import HeaderNameImg from "./headerNameImg/HeaderNameImg";
 import Link from "next/link";
+import ButtonHeader from "../ui/buttonHeader/ButtonHeader";
+import logo from "./../../../public/img/logo-wrapper.jpg";
+import style from "./Header.module.css";
 
 const Header = () => {
 

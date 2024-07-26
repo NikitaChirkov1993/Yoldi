@@ -1,4 +1,3 @@
-// import yoldi from "./../../../../public/img/logo-wrapper.jpg";
 import classNames from 'classnames';
 import { getSplitName } from "./../../utilit/utilit";
 import style from "./styleMainAccount.module.css";

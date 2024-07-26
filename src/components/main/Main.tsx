@@ -1,5 +1,5 @@
-import FormLogin from "../form/formLogin/FormLogin";
-import FormRegister from "../form/formRegister/FormRegister";
+import FormLogin from "../form/FormLogin";
+import FormRegister from "../form/FormRegister";
 import style from "./styleMain.module.css";
 const Main = ({ flag }) => {
 

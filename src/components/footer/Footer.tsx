@@ -1,6 +1,6 @@
-import FooterRegister from "./FooterRegister";
+import style from "./Footer.module.css";
 import FooterLogin from "./FooterLogin";
-import style from "./styleFooter.module.css"
+import FooterRegister from "./FooterRegister";
 const Footer = ({flagfooter}) => {
     return (
         <footer className={style.footer}>

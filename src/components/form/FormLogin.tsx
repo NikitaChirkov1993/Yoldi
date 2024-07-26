@@ -1,7 +1,7 @@
 import ButtonForm from "@/components/ui/buttonForm/ButtonForm";
 import InputEmail from "@/components/ui/inputForm/InputEmail";
 import InputPassword from "@/components/ui/inputForm/InputPassword";
-import style from "./../formRegister/styleFormRegister.module.css";
+import style from "./Form.module.css";
 const FormLogin = () => {
     return (
         <form action="" className={style.form}>
