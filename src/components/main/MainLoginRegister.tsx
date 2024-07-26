@@ -1,7 +1,7 @@
 import FormLogin from "../form/FormLogin";
 import FormRegister from "../form/FormRegister";
-import style from "./styleMain.module.css";
-const Main = ({ flag }) => {
+import style from "./Main.module.css";
+const MainLoginRegister = ({ flag }) => {
 
     return (
          <main className={style.main}>
@@ -12,4 +12,4 @@ const Main = ({ flag }) => {
     }
 };
 
-export default Main;
+export default MainLoginRegister;

@@ -2,14 +2,14 @@
 
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import MainMaster from "@/components/main/MainMaster";
+import MainGlobal from "@/components/main/MainGlobal";
 
 
 const Home = () => {
     return (
         <div className="wrapper__yoldi">
             <Header />
-            <MainMaster />
+            <MainGlobal />
             <Footer flagfooter={true}/>
 
         </div>

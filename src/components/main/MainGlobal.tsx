@@ -1,12 +1,12 @@
 
+import { api } from "@/api/api";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import UserItem from "../userItem/UserItem";
 import UserList from "../userList/UserList";
-import style from "./styleMain.module.css";
-import { api } from "@/api/api";
-import Link from "next/link";
+import style from "./Main.module.css";
 
-const MainMaster = () => {
+const MainGlobal = () => {
     const [data, setData] = useState([]);
 
 
@@ -45,4 +45,4 @@ const MainMaster = () => {
     );
 }
 
-export default MainMaster;
+export default MainGlobal;

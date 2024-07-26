@@ -1,9 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true, //добавил
-  images: { //добавил
-    domains: ['frontend-test-api.yoldi.agency'], //добавил
-  }, //добавил
+  reactStrictMode: false, //добавил
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'frontend-test-api.yoldi.agency',
+        port: '',
+      }
+    ]
+  }
+
 };
 
 export default nextConfig;

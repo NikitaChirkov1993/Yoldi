@@ -1,12 +1,12 @@
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import Main from "@/components/main/Main";
+import MainLoginRegister from "@/components/main/MainLoginRegister";
 
 const Login = () => {
     return (
         <div className="wrapper__yoldi">
             <Header />
-            <Main flag={false}/>
+            <MainLoginRegister flag={false}/>
             <Footer flagfooter={false} />
         </div>
     );

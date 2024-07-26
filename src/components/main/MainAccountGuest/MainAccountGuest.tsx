@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import { getSplitName } from "./../../utilit/utilit";
-import style from "./styleMainAccount.module.css";
+import { getSplitName } from "../../utilit/utilit";
+import style from "./MainAccountGuest.module.css";
 
-const MainAccount = ({nameAccount,emailAccount,description,imgAccount,coverAccount}) => {
+const MainAccountGuest = ({ nameAccount, emailAccount, description, imgAccount, coverAccount }) => {
+
     const { name, letter } = getSplitName(nameAccount);
     console.log(imgAccount,"imgAccount");
     console.log(coverAccount, "coverAccount");
@@ -11,10 +12,6 @@ const MainAccount = ({nameAccount,emailAccount,description,imgAccount,coverAccou
 
     const classCoverYES = classNames(style.block__cover_global , style.block__coverYES);
     const classImgYES = classNames(style.block__img_global, style.block__imgYES);
-
-
-
-
 
     return (
         <main className={style.mainAccount}>
@@ -67,4 +64,4 @@ const MainAccount = ({nameAccount,emailAccount,description,imgAccount,coverAccou
     );
 };
 
-export default MainAccount;
+export default MainAccountGuest;
