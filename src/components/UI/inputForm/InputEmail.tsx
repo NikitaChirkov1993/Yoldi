@@ -1,6 +1,6 @@
 import Image from "next/image";
-import style from "./styleInputForm.module.css"
-import imgEmail from "./../../../../public/img/envelope.svg"
+import imgEmail from "./../../../../public/img/envelope.svg";
+import style from "./InputForm.module.css";
 
 const InputEmail = () => {
     return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import style from "./styleInputForm.module.css";
-import imgName from "./../../../../public/img/user.svg"
+import imgName from "./../../../../public/img/user.svg";
+import style from "./InputForm.module.css";
 
 
 

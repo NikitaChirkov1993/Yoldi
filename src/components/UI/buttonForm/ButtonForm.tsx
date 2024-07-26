@@ -1,4 +1,4 @@
-import style from "./styleButtonForm.module.css"
+import style from "./ButtonForm.module.css";
 const ButtonForm = ({children,...props}) => {
     return (
         <button {...props} className={style.button}>

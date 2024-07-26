@@ -1,7 +1,7 @@
 import Image from "next/image";
-import style from "./styleInputForm.module.css"
-import imgPassword from "./../../../../public/img/Vector.svg"
-import imgEye from "./../../../../public/img/eye-solid.svg"
+import imgPassword from "./../../../../public/img/Vector.svg";
+import imgEye from "./../../../../public/img/eye-solid.svg";
+import style from "./InputForm.module.css";
 
 
 

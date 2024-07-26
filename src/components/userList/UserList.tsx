@@ -1,5 +1,5 @@
 "use client";
-import style from "./styleUserList.module.css";
+import style from "./UserList.module.css";
 
 
 

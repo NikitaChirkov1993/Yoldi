@@ -1,8 +1,8 @@
 // "use client";
 import classNames from "classnames";
 import Image from "next/image";
-import style from "./styleUserItem.module.css";
-import  {getSplitName} from "./../utilit/utilit"
+import { getSplitName } from "./../utilit/utilit";
+import style from "./UserItem.module.css";
 
 const UserItem = (props) => {
 
