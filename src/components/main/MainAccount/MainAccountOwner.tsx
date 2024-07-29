@@ -8,13 +8,11 @@ import style from "./MainAccount.module.css";
 const MainAccountOwner = () => {
     const { name, letter } = getSplitName("Никита");
     const emailAccount = "chrkov31011993@gmail.com";
-    const description = "Рыбатекст ";
+    const description = "Рыбатекст";
 
     const classCoverOwner = classNames(style.block__cover_global, style.block__coverOwner);
     const classImgOwner = classNames(style.block__img_global, style.block__imgOwner);
 
-    const classBtnRedactDesktop = classNames(style.mainAccount__container_right, style.btnDesktop);
-    const classBtnRedactMobile = classNames(style.mainAccount__container_right, style.btnMobile);
     return (
         <main className={style.mainAccount}>
             <div className={classCoverOwner}>
@@ -29,7 +27,7 @@ const MainAccountOwner = () => {
 
                     <div className={style.mainAccount__email}>{emailAccount}</div>
 
-                    <div className={classBtnRedactMobile}>
+                    <div className={style.btnMobile}>
                         <ButtonOwnerRedact />
                     </div>
 
@@ -40,7 +38,7 @@ const MainAccountOwner = () => {
                     </Link>
                 </div>
 
-                <div className={classBtnRedactDesktop}>
+                <div className={style.btnDesktop}>
                     <ButtonOwnerRedact />
                 </div>
             </div>

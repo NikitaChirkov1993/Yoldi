@@ -49,7 +49,7 @@ const MainAccountGuest = ({ nameAccount, emailAccount, description, imgAccount, 
                 </div>
             )}
 
-            <div className={style.mainAccount__container_left}>
+            <div className={style.mainAccount__container}>
                 <h2 className={style.mainAccount__title}>{ name }</h2>
                 <div className={style.mainAccount__email}>{emailAccount}</div>
                 {description ?
