@@ -1,0 +1,44 @@
+.mainAccount__btn_redact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 40px;
+    border: 1px solid var(--strokes-primary);
+    background: var(--background-primary);
+    border-radius: 5px;
+    padding: 7px 22px;
+
+    &:hover {
+        opacity: 0.6;
+    }
+    &:active {
+        opacity: 0.2;
+    }
+}
+
+.mainAccount__btn_exit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 130px;
+    height: 40px;
+    padding: 7px 22px;
+    border: 1px solid var(--strokes-primary);
+    background: var(--background-primary);
+    border-radius: 5px;
+
+    &:hover {
+        opacity: 0.6;
+    }
+    &:active {
+        opacity: 0.2;
+    }
+}
+
+.mainAccount__btn_text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--txt-color);
+}
