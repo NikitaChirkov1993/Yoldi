@@ -1,13 +1,11 @@
 import HeaderAccountOwner from "@/components/header/HeaderAccountOwner";
-import Link from "next/link";
+import MainAccountOwner from "@/components/main/MainAccount/MainAccountOwner";
 
 const AccountOwnerUser = () => {
     return (
         <div className="wrapper__yoldi">
-            <HeaderAccountOwner />
-            <Link href="/account/guest">
-                <button>Выйти</button>
-            </Link>
+            <HeaderAccountOwner/>
+            <MainAccountOwner/>
         </div>
     );
 };

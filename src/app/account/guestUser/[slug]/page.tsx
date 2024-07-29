@@ -3,7 +3,7 @@
 import { api } from "@/api/api";
 import HeaderAccountGuest from "@/components/header/HeaderAccountGuest";
 import HeaderAccountOwner from "@/components/header/HeaderAccountOwner";
-import MainAccountGuest from "@/components/main/MainAccountGuest/MainAccountGuest";
+import MainAccountGuest from "@/components/main/MainAccount/MainAccountGuest";
 import { useEffect, useState } from "react";
 
 const AccountGuestUser = ({ params }: {params: {slug: string}}) => {
