@@ -6,7 +6,7 @@ import HeaderAccountOwner from "@/components/header/HeaderAccountOwner";
 import MainAccountGuest from "@/components/main/MainAccountGuest/MainAccountGuest";
 import { useEffect, useState } from "react";
 
-const AccountGuestUsers = ({ params }: {params: {slug: string}}) => {
+const AccountGuestUser = ({ params }: {params: {slug: string}}) => {
     const [data, setData] = useState();
 
     useEffect(() => {
@@ -41,4 +41,4 @@ const AccountGuestUsers = ({ params }: {params: {slug: string}}) => {
     );
 };
 
-export default AccountGuestUsers;
+export default AccountGuestUser;
