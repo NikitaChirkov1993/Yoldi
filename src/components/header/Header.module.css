@@ -15,6 +15,15 @@
     height: 50px;
     margin-right: 20px ;
     cursor: pointer;
+
+    &:hover {
+        transition: all 0.5s ease-in-out;
+        opacity: 0.6;
+    }
+    &:active {
+        transition: all 0.1s ease-in-out;
+        opacity: 0.2;
+    }
 }
 
 .text {
