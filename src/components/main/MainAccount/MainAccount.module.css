@@ -1,4 +1,12 @@
 /*Общие стили для аккаунтов*/
+.form__title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 140%;
+    color: var(--txt-color);
+    margin-bottom: 25px;
+}
+
 .block__cover_global {
     position: relative;
     min-height: 200px;
@@ -16,8 +24,6 @@
     height: 100px;
     border-radius: 999999px;
     border: 1px solid var(--strokes-secondady);
-
-
 }
 
 .block__coverNO {
@@ -81,8 +87,10 @@
 }
 
 /* СТИЛИ ДЛА АККАУНТА OWNER*/
-
 .block__coverOwner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--background-secondary);
     border-bottom: 1px solid var(--strokes-secondady);
 }
@@ -104,7 +112,7 @@
 
     &:hover {
         background-image: url("./../../../../public/img/state=hover.png");
-        box-shadow: inset 0 0 0 0 ;
+        box-shadow: inset 0 0 0 0;
     }
 }
 
@@ -125,12 +133,9 @@
     margin-bottom: 30px;
 }
 
-
-
 @media only screen and (max-width:900px) {
     .block__img_global {
-        left: auto;
-        margin-left: 30px;
+        left: 30px;
     }
 
     .mainAccount__email {

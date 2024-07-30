@@ -1,10 +1,11 @@
 import HeaderAccountOwner from "@/components/header/HeaderAccountOwner";
 import MainAccountOwner from "@/components/main/MainAccount/MainAccountOwner";
 
+
 const AccountOwnerUser = () => {
     return (
         <div className="wrapper__yoldi">
-            <HeaderAccountOwner/>
+            <HeaderAccountOwner />
             <MainAccountOwner/>
         </div>
     );

@@ -1,11 +1,19 @@
+"use client"
+import FormRedactProfile from "@/components/form/FormRedactProfile/FormRedactProfile";
 import ButtonOwnerExit from "@/components/ui/buttonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/ui/buttonOwnerUser/ButtonOwnerRedact";
+import ButtonOwnerUploading from "@/components/ui/buttonOwnerUser/ButtonOwnerUploading";
+import ModalOwner from "@/components/ui/ModalOwner/ModalOwner";
 import classNames from "classnames";
 import Link from "next/link";
+import { useState } from "react";
 import { getSplitName } from "../../utilit/utilit";
 import style from "./MainAccount.module.css";
 
 const MainAccountOwner = () => {
+    const [visible, setVisible] = useState(false);
+
+
     const { name, letter } = getSplitName("Никита");
     const emailAccount = "chrkov31011993@gmail.com";
     const description = "Рыбатекст";
@@ -15,9 +23,13 @@ const MainAccountOwner = () => {
 
     return (
         <main className={style.mainAccount}>
+            <ModalOwner visible={visible} setVisible={setVisible}>
+                <h3 className={style.form__title}>Редактировать профиль</h3>
+                <FormRedactProfile/>
+            </ModalOwner>
             <div className={classCoverOwner}>
+                <ButtonOwnerUploading />
                 <button type="button" className={classImgOwner}>
-                    {/* <input type="file" style={{display:"none"}} /> */}
                     <p>{letter}</p>
                 </button>
             </div>
@@ -39,7 +51,7 @@ const MainAccountOwner = () => {
                 </div>
 
                 <div className={style.btnDesktop}>
-                    <ButtonOwnerRedact />
+                    <ButtonOwnerRedact onClick={() => setVisible(true)} />
                 </div>
             </div>
         </main>

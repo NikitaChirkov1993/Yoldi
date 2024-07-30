@@ -1,0 +1,57 @@
+.form {}
+
+.label__global {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--gray);
+    margin-bottom: 5px;
+}
+
+.input__global {
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--txt-color);
+}
+
+.input__name {
+    display: flex;
+    width: 100%;
+    max-width: 540px;
+    min-height: 50px;
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+}
+
+.wrapper__addressProfile {
+    display: flex;
+    width: 100%;
+    max-width: 540px;
+    min-height: 50px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.text__addressProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 146px;
+    border-right: 1px solid var(--strokes-primary);
+    background: var(--background-secondary);
+}
+
+.input__addressProfile {
+    display: flex;
+    width: 100%;
+    padding: 12px 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: red;
+}

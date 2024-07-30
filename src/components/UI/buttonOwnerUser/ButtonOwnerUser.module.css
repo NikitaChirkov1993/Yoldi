@@ -1,4 +1,4 @@
-.mainAccount__btn_redact {
+.mainAccount__btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,20 +17,24 @@
     }
 }
 
-.mainAccount__btn_exit {
+.btn__uploading_delete {
+    cursor: pointer;
     display: flex;
+    opacity: 0;
     align-items: center;
     justify-content: space-between;
-    width: 130px;
+    width: 195px;
     height: 40px;
-    padding: 7px 22px;
     border: 1px solid var(--strokes-primary);
     background: var(--background-primary);
     border-radius: 5px;
+    padding: 7px 22px;
 
     &:hover {
-        opacity: 0.6;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
     }
+
     &:active {
         opacity: 0.2;
     }
