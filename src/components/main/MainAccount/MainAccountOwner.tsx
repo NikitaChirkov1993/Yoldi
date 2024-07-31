@@ -25,7 +25,7 @@ const MainAccountOwner = () => {
         <main className={style.mainAccount}>
             <ModalOwner visible={visible} setVisible={setVisible}>
                 <h3 className={style.form__title}>Редактировать профиль</h3>
-                <FormRedactProfile/>
+                <FormRedactProfile onClick={()=> setVisible(false) } />
             </ModalOwner>
             <div className={classCoverOwner}>
                 <ButtonOwnerUploading />
@@ -40,7 +40,7 @@ const MainAccountOwner = () => {
                     <div className={style.mainAccount__email}>{emailAccount}</div>
 
                     <div className={style.btnMobile}>
-                        <ButtonOwnerRedact />
+                        <ButtonOwnerRedact onClick={() => setVisible(true)} />
                     </div>
 
                     {description ? <div className={style.mainAccount__text}>{description}</div> : <div className={style.mainAccount__text}></div>}

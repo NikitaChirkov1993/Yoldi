@@ -1,0 +1,32 @@
+.btn__redact_global {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 7px 33px;
+    width: 100%;
+    max-width: 265px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+.btn__cancel {
+    margin-right: 10px;
+    border: 1px solid var(--gray);
+    background: var(--background-primary);
+    color: var(--txt-color);
+
+}
+
+.btn__save {
+    background: var(--txt-color);
+    color: var(--background-primary);
+}
+
+@media only screen and (max-width:400px) {
+    .btn__redact_global {
+        padding: 0;
+    }
+}
