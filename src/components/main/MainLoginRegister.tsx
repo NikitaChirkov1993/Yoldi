@@ -1,15 +1,18 @@
-import FormLogin from "../form/FormLogin";
-import FormRegister from "../form/FormRegister";
-import style from "./Main.module.css";
-const MainLoginRegister = ({ flag }) => {
+"use client"
 
+import { memo } from "react";
+import FormLogin from "../form/FormLogin";
+import style from "./Main.module.css";
+
+const MainLoginRegister = memo(({ flag }) => {
+     console.log('рендер MainLoginRegister');
     return (
          <main className={style.main}>
-              {flag ?  <FormRegister/> : <FormLogin/> }
+               <FormLogin/>
          </main>
     );
     {
     }
-};
+});
 
 export default MainLoginRegister;
