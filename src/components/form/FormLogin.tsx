@@ -4,8 +4,8 @@ import { api } from "@/api/api";
 import ButtonForm from "@/components/ui/buttonForm/ButtonForm";
 import InputEmail from "@/components/ui/inputForm/InputEmail";
 import InputPassword from "@/components/ui/inputForm/InputPassword";
-import { redirect } from "next/navigation";
-import { memo, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import style from "./Form.module.css";
 
 export type AuthInfo = {
@@ -13,10 +13,10 @@ export type AuthInfo = {
     password: string;
 }
 
-const FormLogin = memo(() => {
+const FormLogin = () => {
     const [authInfo, setAuthInfo] = useState<AuthInfo>({ email: '', password: '' });
     const [isDisabled, setIsDisabled] = useState(true);
-    console.log(authInfo, 'authInfo');
+    const router = useRouter();
 
     useEffect(() => {
         if (authInfo.email.length >= 5 && authInfo.password.length >= 5) {
@@ -25,23 +25,25 @@ const FormLogin = memo(() => {
 
     }, [authInfo])
 
-    const submitHandler = async () => {
-
-        console.log('клик');
+    const submitHandler = async (event: React.FormEvent) => {
+        event.preventDefault();
         const authData = await api.auth.login(authInfo);
-            if (authData.ok) {
-                redirect('/account/owner');
-            }
+        console.log(authData, 'authData');
+        if (!authData.error) {
+            console.log(authData, 'authData');
+            localStorage.setItem('authInfo', JSON.stringify(authData.value))
+            router.push('/accounts');
+        }
     }
 
     return (
-        <form className={style.form} >
+        <form onSubmit={submitHandler}  className={style.form} >
             <h2 className={style.form__title}>Вход в Yoldi Agency</h2>
             <InputEmail setAuthInfo={setAuthInfo} authInfo={authInfo} />
             <InputPassword setAuthInfo={setAuthInfo} authInfo={authInfo} />
             <ButtonForm submitHandler={submitHandler} disabled={isDisabled}>Войти</ButtonForm>
         </form>
     );
-});
+};
 
 export default FormLogin;

@@ -1,0 +1,116 @@
+/*Общие стили для аккаунтов*/
+.form__title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 140%;
+    color: var(--txt-color);
+    margin-bottom: 25px;
+}
+
+.block__cover_global {
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 85px;
+}
+
+.block__img_global {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 240px;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+    border-radius: 999999px;
+    border: 1px solid var(--strokes-secondady);
+}
+
+.block__coverNO {
+    background-color: var(--background-secondary);
+    border-bottom: 1px solid var(--strokes-secondady);
+}
+
+.block__imgNO {
+    background-color: var(--background-secondary);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 140%;
+    color: var(--txt-color);
+}
+
+.block__coverYES {
+    background-size: cover;
+    background-position: center;
+}
+
+.block__imgYES {
+    background-size: cover;
+}
+
+.mainAccount__container {
+    margin-left: 240px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.mainAccount__container_left {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.mainAccount__title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 140%;
+    color: var(--txt-color);
+    margin-bottom: 10px;
+}
+
+.mainAccount__email {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+.mainAccount__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--txt-color);
+    margin-bottom: 60px;
+}
+
+
+
+@media only screen and (max-width:900px) {
+    .block__img_global {
+        left: 30px;
+    }
+
+    .mainAccount__email {
+        margin-bottom: 10px;
+    }
+
+    .mainAccount__container {
+        margin-left: 30px;
+    }
+
+    .mainAccount__wrapper {
+        margin-left: 30px;
+        padding-bottom: 200px;
+    }
+
+    .btnDesktop {
+        display: none;
+    }
+
+    .btnMobile {
+        display: block;
+    }
+}

@@ -1,16 +1,15 @@
-"use client"
-
 import Footer from "@/components/footer/Footer";
-import HeaderAccountGuest from "@/components/header/HeaderAccountGuest";
-import MainLoginRegister from "@/components/main/MainLoginRegister";
+import FormLogin from "@/components/form/FormLogin";
+import Header from "@/components/header/Header";
 
 const Login = () => {
-    console.log('рендер login');
     return (
         <div className="wrapper__yoldi">
-            <HeaderAccountGuest />
-            <MainLoginRegister flag={false}/>
-            <Footer flagFooter={false} />
+            <Header />
+            <main className="main">
+                <FormLogin />
+            </main>
+            <Footer flag={false} />
         </div>
     );
 };

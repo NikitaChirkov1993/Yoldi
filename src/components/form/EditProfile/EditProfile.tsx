@@ -1,7 +1,8 @@
 import ButtonCancel from "@/components/ui/buttonOwnerUser/ButtonRedactProfile/ButtonCancel";
 import ButtonSave from "@/components/ui/buttonOwnerUser/ButtonRedactProfile/ButtonSave";
-import style from "./FormRedactProfile.module.css";
-const FormRedactProfile = ({onClick}) => {
+import style from "./EditProfile.module.css";
+
+const EditProfile = ({onClick}) => {
     return (
         <form className={style.form} action="">
             <p className={style.label__global}>
@@ -37,4 +38,4 @@ const FormRedactProfile = ({onClick}) => {
     );
 };
 
-export default FormRedactProfile;
+export default EditProfile;

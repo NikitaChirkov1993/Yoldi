@@ -1,44 +1,39 @@
 @font-face {
-    font-family: 'Inter';
-    src:
-      url('./../../public/font/Inter-Regular.woff2') format('woff2'),
-      url('./../../public/font/Inter-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-@font-face {
-    font-family: 'Inter';
-    src:
-      url('./../../public/font/Inter-Medium.woff2') format('woff2'),
-      url('./../../public/font/Inter-Regular.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
+  font-family: 'Inter';
+  src:
+    url('./../../public/font/Inter-Regular.woff2') format('woff2'),
+    url('./../../public/font/Inter-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('./../../public/font/Inter-Medium.woff2') format('woff2'),
+    url('./../../public/font/Inter-Regular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-	--txt-color: #000;
-	--background-primary: #fff;
-	--background-secondary: #f3f3f3;
-	--gray: #838383;
-	--strokes-primary: #d4d4d4;
-	--strokes-secondady: #e6e6e6;
-	--error: #f00000;
-
-
-        --font-family: "Inter", sans-serif;
-        --second-family: "SF Pro Display", sans-serif;
-        --third-family: "SF UI Text", sans-serif;
-
+  --txt-color: #000;
+  --background-primary: #fff;
+  --background-secondary: #f3f3f3;
+  --gray: #838383;
+  --strokes-primary: #d4d4d4;
+  --strokes-secondady: #e6e6e6;
+  --error: #f00000;
+  --font-family: "Inter", sans-serif;
+  --second-family: "SF Pro Display", sans-serif;
+  --third-family: "SF UI Text", sans-serif;
 }
 
 body {
-    font-family: var(--font-family);
-
+  font-family: var(--font-family);
 }
-
 
 .wrapper__yoldi {
   min-height: 100%;
@@ -47,4 +42,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background: var(--background-secondary);
 }

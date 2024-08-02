@@ -1,7 +1,7 @@
 import Link from "next/link";
-import style from "./HeaderNameImg.module.css";
+import style from "./Avatar.module.css";
 
-const HeaderNameImg = () => {
+const Avatar = () => {
     function headerName1() {
         const name1 = "Никита";
         const letter1 = name1.split("")[0];
@@ -12,7 +12,7 @@ const HeaderNameImg = () => {
     return (
         <div className={style.header__info_right}>
             <p className={style.name}>{name1}</p>
-            <Link href="/account/ownerUser">
+            <Link href="/account/owner">
                 <div className={style.img}>
                     <div className={style.imges}>{letter1}</div>
                 </div>
@@ -21,4 +21,4 @@ const HeaderNameImg = () => {
     );
 };
 
-export default HeaderNameImg;
+export default Avatar;
