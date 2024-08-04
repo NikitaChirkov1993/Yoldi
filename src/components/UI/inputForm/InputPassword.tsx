@@ -11,7 +11,6 @@ type InputPassword = {
 }
 
 const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
-    console.log(authInfo, 'authInfo');
 
     return (
         <div className={style.wrapper__input}>

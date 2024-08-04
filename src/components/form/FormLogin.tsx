@@ -30,18 +30,19 @@ const FormLogin = () => {
         const authData = await api.auth.login(authInfo);
         console.log(authData, 'authData');
         if (!authData.error) {
-            console.log(authData, 'authData');
             localStorage.setItem('authInfo', JSON.stringify(authData.value))
             router.push('/accounts');
         }
     }
+
+
 
     return (
         <form onSubmit={submitHandler}  className={style.form} >
             <h2 className={style.form__title}>Вход в Yoldi Agency</h2>
             <InputEmail setAuthInfo={setAuthInfo} authInfo={authInfo} />
             <InputPassword setAuthInfo={setAuthInfo} authInfo={authInfo} />
-            <ButtonForm submitHandler={submitHandler} disabled={isDisabled}>Войти</ButtonForm>
+            <ButtonForm  onClick={submitHandler} disabled={isDisabled}>Войти</ButtonForm>
         </form>
     );
 };

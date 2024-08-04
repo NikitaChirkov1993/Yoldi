@@ -1,9 +1,8 @@
-const API = 'https://frontend-test-api.yoldi.agency/api';
 
 export class AuthService {
     register = async (args) => {
         try {
-            const response = await fetch(`${API}/auth/sign-up`, {
+            const response = await fetch(`https://frontend-test-api.yoldi.agency/api/auth/sign-up`, {
                 method: "POST",
                 body: JSON.stringify(args),
                 headers: {
@@ -19,7 +18,7 @@ export class AuthService {
 
     login = async (args) => {
         try {
-            const response = await fetch('https://frontend-test-api.yoldi.agency/api/auth/login', {
+            const response = await fetch(`https://frontend-test-api.yoldi.agency/api/auth/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

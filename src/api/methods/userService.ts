@@ -1,9 +1,9 @@
-const API = 'https://frontend-test-api.yoldi.agency/api';
+const API = `https://frontend-test-api.yoldi.agency`;
 
 export class UserService {
     getUsers = async () => {
         try {
-            const response = await fetch(`${API}/user`);
+            const response = await fetch(`${API}/api/user`);
             const data = await response.json();
             return data;
         } catch (e) {
@@ -13,7 +13,7 @@ export class UserService {
 
     getUser = async (slug: string) => {
         try {
-            const response = await fetch(`${API}/user/${slug}`);
+            const response = await fetch(`${API}/api/user/${slug}`);
             const data = await response.json();
             return data;
         } catch (e) {
