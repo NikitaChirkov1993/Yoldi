@@ -9,7 +9,6 @@ import Avatar from "./avatar/Avatar";
 
 const Header = () => {
     let isAuth: string | null = null;
-
     if (typeof window !== 'undefined') {
         isAuth = localStorage.getItem('authInfo');
     }

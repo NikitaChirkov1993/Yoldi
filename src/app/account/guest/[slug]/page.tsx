@@ -23,6 +23,9 @@ const AccountGuest = ({ params }: {params: {slug: string}}) => {
         fetchData();
     }, []);
 
+    console.log(data, "guestDATA");
+
+
 
     if (!data) {
     return <div>Идёт загрузка</div>

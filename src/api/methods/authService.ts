@@ -21,7 +21,7 @@ export class AuthService {
             const response = await fetch(`https://frontend-test-api.yoldi.agency/api/auth/login`, {
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
+                    'Content-Type': 'application/json;charset=utf-8',
                 },
                 body: JSON.stringify(args),
             });

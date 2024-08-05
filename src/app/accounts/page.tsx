@@ -29,13 +29,26 @@ type User = {
 }
 
 const Accounts = () => {
+    let isAuth: string | null = null;
+    if (typeof window !== 'undefined') {
+        isAuth = localStorage.getItem('authInfo');
+    }
+
     const [data, setData] = useState<User[]>([]);
+
+    const [profile, setProfile] = useState();
+    console.log(profile, "ProfileData");
+    console.log(isAuth,"IsAuth");
 
     useEffect(() => {
         const fetchData = async () => {
             const usersData = await api.users.getUsers();
             if (usersData) {
                 setData(usersData);
+            }
+            const avatardata = await api.profile.getProfile();
+            if (avatardata) {
+                setProfile(avatardata);
             }
         };
 
@@ -52,6 +65,7 @@ const Accounts = () => {
                         {data.map((item) =>
                             <Link key={item.slug} href={`/account/guest/${item.slug}`}>
                                 <UserItem
+                                    slug={item.slug}
                                     name={item.name}
                                     email={item.email}
                                     image={item.image}

@@ -31,7 +31,12 @@ const FormLogin = () => {
         console.log(authData, 'authData');
         if (!authData.error) {
             localStorage.setItem('authInfo', JSON.stringify(authData.value))
-            router.push('/accounts');
+            const profile = await api.profile.getProfile(authData.value);
+
+            if (!profile.error) {
+                router.push('/accounts');
+            }
+
         }
     }
 
