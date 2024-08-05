@@ -1,21 +1,20 @@
 import { RegInfo } from "@/components/form/FormRegister";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction } from "react";
-import imgName from "./../../../../public/img/user.svg";
+import imgEmail from "./../../../../public/img/envelope.svg";
 import style from "./InputForm.module.css";
 
-type InputNameRegister = {
+type InputEmailRegister = {
     setRegInfo: Dispatch<SetStateAction<RegInfo>>;
-    regInfo: RegInfo;
+    regInfo: RegInfo
 }
 
-
-const InputNameRegister: FC<InputNameRegister> = ({ regInfo, setRegInfo }) => {
+const InputEmailRegister: FC<InputEmailRegister> = ({ setRegInfo, regInfo }) => {
     return (
         <div className={style.wrapper__input}>
             <Image
                 alt="Name"
-                src={imgName}
+                src={imgEmail}
                 className={style.icon}
                 priority
 
@@ -23,12 +22,11 @@ const InputNameRegister: FC<InputNameRegister> = ({ regInfo, setRegInfo }) => {
             <input
                 className={style.input__text}
                 type="text"
-                placeholder="Имя"
-                onChange={(e) => setRegInfo({...regInfo, ['name']: e.target.value})}
-                value={regInfo.name}
-            />
+                placeholder="E-mail"
+                onChange={(e) => setRegInfo({ ...regInfo, ['email']: e.target.value })}
+                value={regInfo.email} />
         </div>
      );
 }
 
-export default InputNameRegister;
+export default InputEmailRegister;

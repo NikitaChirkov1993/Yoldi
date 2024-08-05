@@ -19,7 +19,12 @@ const InputEmail: FC<InputEmail> = ({ setAuthInfo, authInfo }) => {
                 priority
 
             />
-            <input className={style.input__text} type="text" placeholder="E-mail" onChange={(e) => setAuthInfo({ ...authInfo, ['email']: e.target.value })} value={authInfo.email} />
+            <input
+                className={style.input__text}
+                type="text"
+                placeholder="E-mail"
+                onChange={(e) => setAuthInfo({ ...authInfo, ['email']: e.target.value })}
+                value={authInfo.email} />
         </div>
      );
 }

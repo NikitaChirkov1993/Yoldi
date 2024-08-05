@@ -2,11 +2,11 @@
 
 import { api } from "@/api/api";
 import ButtonForm from "@/components/ui/buttonForm/ButtonForm";
-import InputEmail from "@/components/ui/inputForm/InputEmail";
 import InputNameRegister from "@/components/ui/inputForm/InputNameRegister";
-import InputPassword from "@/components/ui/inputForm/InputPassword";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import InputEmailRegister from "../ui/inputForm/InputEmailRegister";
+import InputPasswordRegister from "../ui/inputForm/inputPasswordRegister";
 import style from "./Form.module.css";
 
 export type RegInfo = {
@@ -31,7 +31,7 @@ const FormRegister = () => {
 
     const submitHandlerReg = async (event: React.FormEvent) => {
         event.preventDefault();
-        const authData = await api.auth.register({regInfo});
+        const authData = await api.auth.register(regInfo);
         console.log(authData, 'authData');
         if (!authData.error) {
             router.push('/login');
@@ -44,9 +44,9 @@ const FormRegister = () => {
         <form onSubmit={submitHandlerReg} className={style.form}>
             <h2 className={style.form__title}>Регистрация в Yoldi Agency</h2>
             <InputNameRegister setRegInfo={setRegInfo} regInfo={regInfo} />
-            <InputEmail setAuthInfo={setRegInfo} authInfo={regInfo} />
-            <InputPassword setAuthInfo={setRegInfo} authInfo={regInfo} />
-                <ButtonForm onClick={submitHandlerReg} disabled={isDisabled}>Создать аккаунт</ButtonForm>
+            <InputEmailRegister setRegInfo={setRegInfo} regInfo={regInfo} />
+            <InputPasswordRegister setRegInfo={setRegInfo} regInfo={regInfo} />
+            <ButtonForm onClick={submitHandlerReg} disabled={isDisabled}>Создать аккаунт</ButtonForm>
         </form>
      );
 }

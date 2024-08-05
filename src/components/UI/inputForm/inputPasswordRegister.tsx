@@ -1,16 +1,16 @@
-import { AuthInfo } from "@/components/form/FormLogin";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction } from "react";
 import imgPassword from "./../../../../public/img/Vector.svg";
 import imgEye from "./../../../../public/img/eye-solid.svg";
 import style from "./InputForm.module.css";
+import { RegInfo } from "@/components/form/FormRegister";
 
-type InputPassword = {
-    setAuthInfo: Dispatch<SetStateAction<AuthInfo>>;
-    authInfo: AuthInfo;
+type InputPasswordRegister = {
+    setRegInfo: Dispatch<SetStateAction<RegInfo>>;
+    regInfo: RegInfo;
 }
 
-const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
+const InputPasswordRegister: FC<InputPasswordRegister> = ({ setRegInfo, regInfo}) => {
 
     return (
         <div className={style.wrapper__input}>
@@ -25,10 +25,9 @@ const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
                 className={style.input__text}
                 type="text"
                 placeholder="Пароль"
-                onChange={(e) => setAuthInfo({ ...authInfo, ['password']: e.target.value })}
-                value={authInfo.password}
-
-                />
+                onChange={(e) => setRegInfo({ ...regInfo, ['password']: e.target.value })}
+                value={regInfo.password}
+ />
             <button className={style.icon__btn_eye}>
                 <Image
                     alt="посмотреть"
@@ -41,4 +40,4 @@ const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
      );
 }
 
-export default InputPassword;
+export default InputPasswordRegister;
