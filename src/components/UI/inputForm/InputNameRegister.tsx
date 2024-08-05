@@ -1,12 +1,12 @@
-import { RegistrInfo } from "@/components/form/FormRegister";
+import { RegInfo } from "@/components/form/FormRegister";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction } from "react";
 import imgName from "./../../../../public/img/user.svg";
 import style from "./InputForm.module.css";
 
 type InputNameRegister = {
-    setRegInfo: Dispatch<SetStateAction<RegistrInfo>>;
-    regInfo: RegistrInfo;
+    setRegInfo: Dispatch<SetStateAction<RegInfo>>;
+    regInfo: RegInfo;
 }
 
 

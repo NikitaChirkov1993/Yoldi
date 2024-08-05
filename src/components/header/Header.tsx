@@ -8,7 +8,11 @@ import style from "./Header.module.css";
 import Avatar from "./avatar/Avatar";
 
 const Header = () => {
-    const isAuth = localStorage.getItem('authInfo');
+    let isAuth: string | null = null;
+
+    if (typeof window !== 'undefined') {
+        isAuth = localStorage.getItem('authInfo');
+    }
 
     return (
         <header className={style.header}>

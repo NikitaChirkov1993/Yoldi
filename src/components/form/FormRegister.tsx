@@ -9,34 +9,31 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import style from "./Form.module.css";
 
-export type AuthInfo = {
+export type RegInfo = {
     email: string;
+    name: string;
     password: string;
 }
 
-export type RegistrInfo = {
-    name: string;
-}
+
 
 const FormRegister = () => {
-    const [regInfo, setRegInfo] = useState<RegistrInfo>({ name: '' });
-    const [authInfo, setAuthInfo] = useState<AuthInfo>({ email: '', password: '' });
-    const genaralInfo = {...authInfo}
+    const [regInfo, setRegInfo] = useState<RegInfo>({ email: '',name: '', password: '' });
     const [isDisabled, setIsDisabled] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
-        if (authInfo.email.length >= 5 && authInfo.password.length >= 5 && regInfo.name.length >= 1) {
+        if (regInfo.email.length >= 5 && regInfo.password.length >= 5 && regInfo.name.length >= 1) {
             setIsDisabled(false);
         }
 
-    }, [authInfo])
+    }, [regInfo])
 
     const submitHandlerReg = async (event: React.FormEvent) => {
         event.preventDefault();
-        const authData = await api.auth.register({authInfo});
+        const authData = await api.auth.register({regInfo});
         console.log(authData, 'authData');
-        if (!authData.ok) {
+        if (!authData.error) {
             router.push('/login');
         }
     }
@@ -47,8 +44,8 @@ const FormRegister = () => {
         <form onSubmit={submitHandlerReg} className={style.form}>
             <h2 className={style.form__title}>Регистрация в Yoldi Agency</h2>
             <InputNameRegister setRegInfo={setRegInfo} regInfo={regInfo} />
-            <InputEmail setAuthInfo={setAuthInfo} authInfo={authInfo} />
-            <InputPassword setAuthInfo={setAuthInfo} authInfo={authInfo} />
+            <InputEmail setAuthInfo={setRegInfo} authInfo={regInfo} />
+            <InputPassword setAuthInfo={setRegInfo} authInfo={regInfo} />
                 <ButtonForm onClick={submitHandlerReg} disabled={isDisabled}>Создать аккаунт</ButtonForm>
         </form>
      );
