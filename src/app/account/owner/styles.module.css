@@ -26,6 +26,40 @@
     border: 1px solid var(--strokes-secondady);
 }
 
+/* Аватар */
+.block__img_wrapper {
+    cursor: pointer;
+    position: absolute;
+    left: 240px;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+    border-radius: 999999px;
+    border: 1px solid var(--strokes-secondady);
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all ease-out 0.4s;
+
+    &:hover {
+        background-image: url("./../../../../public/img/state=hover.png") !important  ;
+        background-size: cover;
+    }
+}
+
+.block__img_input {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    opacity: 0;
+    overflow: hidden;
+}
+
 .block__coverNO {
     background-color: var(--background-secondary);
     border-bottom: 1px solid var(--strokes-secondady);
@@ -101,10 +135,14 @@
     font-size: 36px;
     line-height: 140%;
     color: var(--txt-color);
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
     box-shadow: inset 0 0 0 50px var(--background-secondary);
     -webkit-transition: ease-out 0.4s;
     -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
+    transition: all ease-out 0.4s;
 
     &:hover p {
         opacity: 0;
@@ -113,6 +151,7 @@
     &:hover {
         background-image: url("./../../../../public/img/state=hover.png");
         box-shadow: inset 0 0 0 0;
+        background-size: cover;
     }
 }
 
@@ -135,6 +174,10 @@
 
 @media only screen and (max-width:900px) {
     .block__img_global {
+        left: 30px;
+    }
+
+    .block__img_wrapper {
         left: 30px;
     }
 

@@ -25,18 +25,19 @@ const FormLogin = () => {
 
     }, [authInfo])
 
+
     const submitHandler = async (event: React.FormEvent) => {
         event.preventDefault();
         const authData = await api.auth.login(authInfo);
+        const profile = await api.profile.getProfile(authData.value);
         console.log(authData, 'authData');
-        if (!authData.error) {
-            localStorage.setItem('authInfo', JSON.stringify(authData.value))
-            const profile = await api.profile.getProfile(authData.value);
 
+        if (!authData.error) {
             if (!profile.error) {
                 router.push('/accounts');
+                localStorage.setItem("getProfile", JSON.stringify(profile));
+                console.log(profile,"profile");
             }
-
         }
     }
 

@@ -12,7 +12,7 @@
     margin-right: 20px;
 }
 
-.img {
+.img__global {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -22,6 +22,8 @@
     width: 50px;
     height: 50px;
     background-color: var(--background-secondary);
+    background-size: cover;
+    background-position: center;
 
         &:hover {
            opacity: 0.6;

@@ -8,10 +8,13 @@ import style from "./Header.module.css";
 import Avatar from "./avatar/Avatar";
 
 const Header = () => {
-    let isAuth: string | null = null;
-    if (typeof window !== 'undefined') {
-        isAuth = localStorage.getItem('authInfo');
-    }
+    const getProfile = localStorage.getItem("getProfile");
+    const profile = getProfile ? JSON.parse(getProfile) :  null;
+
+
+    console.log(profile,"profile");
+
+
 
     return (
         <header className={style.header}>
@@ -22,9 +25,12 @@ const Header = () => {
 
                 <p className={style.text}>Разрабатываем и запускаем сложные веб проекты</p>
             </div>
-            {isAuth
+            {getProfile
                 ?
-                <Avatar />
+                <Avatar
+                    naming={profile.name}
+                    image={profile.image}
+                />
                 :
                 <Link href="/login">
                     <ButtonHeader>Войти</ButtonHeader>
@@ -35,3 +41,20 @@ const Header = () => {
 };
 
 export default Header;
+
+// const getProfile = localStorage.getItem('getProfile');
+// let profile = null;
+
+// if (getProfile) {
+// try {
+//     profile = JSON.parse(getProfile);
+// } catch (error) {
+//     console.error('Error parsing JSON from localStorage', error);
+// }
+// }
+
+// if (profile && profile.name) {
+//     console.log(profile.name);
+//   } else {
+//     console.log('Profile or name not found');
+// }

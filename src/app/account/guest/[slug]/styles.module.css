@@ -24,6 +24,7 @@
     height: 100px;
     border-radius: 999999px;
     border: 1px solid var(--strokes-secondady);
+    background-size: cover;
 }
 
 .block__coverNO {
