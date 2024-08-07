@@ -11,11 +11,6 @@ const Header = () => {
     const getProfile = localStorage.getItem("getProfile");
     const profile = getProfile ? JSON.parse(getProfile) :  null;
 
-
-    console.log(profile,"profile");
-
-
-
     return (
         <header className={style.header}>
             <div className={style.left}>

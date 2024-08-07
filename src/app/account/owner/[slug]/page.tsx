@@ -4,6 +4,7 @@ import Header from "@/components/header/Header";
 import classNames from "classnames";
 import { useState } from "react";
 
+import { api } from "@/api/api";
 import EditProfile from "@/components/form/EditProfile/EditProfile";
 import ButtonOwnerExit from "@/components/ui/buttonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/ui/buttonOwnerUser/ButtonOwnerRedact";
@@ -13,9 +14,29 @@ import { getSplitName } from "@/utilits/utilits";
 import Link from "next/link";
 import style from "./styles.module.css";
 
+export type RedactInfo = {
+    name: string;
+    imageId: string;
+    password: string;
+    slug: string;
+    coverId: null;
+    description: string;
+  }
+
 const AccountOwner = () => {
     const getProfile = localStorage.getItem("getProfile");
     const profile = getProfile ? JSON.parse(getProfile) : null;
+
+    const authData = localStorage.getItem("authData");
+    const parseAuthData = authData ? JSON.parse(authData) : null;
+
+    const password = localStorage.getItem("password");
+    const parsePassword = password ? JSON.parse(password) : null;
+
+
+
+
+
     const [visible, setVisible] = useState(false);
 
     const { name, letter } = getSplitName(profile.name);
@@ -23,13 +44,33 @@ const AccountOwner = () => {
     const classCoverOwner = classNames(style.block__cover_global, style.block__coverOwner);
     const classImgOwner = classNames(style.block__img_global, style.block__imgOwner);
 
+
+    const [redactInput, setRedactInput] = useState<RedactInfo>({ name: "", imageId: profile.image.id, password: parsePassword.password, slug: "", coverId: null, description: "" });
+    console.log(profile,"localSrtorage");
+
+
+
+    const HandlerEditSave = async (event: React.FormEvent) => {
+        event.preventDefault();
+        const redactData = await api.profile.patchProfile(parseAuthData.value, redactInput);
+        console.log(redactData,"redactData");
+        if (redactData.ok) {
+            console.log(redactData,"redactData");
+        }
+        console.log(profile, "localSrtorage");
+        // console.log("клик на сервер");
+
+    }
+
+
+
     return (
         <div className="wrapper__yoldi">
             <Header />
             <main className={style.mainAccount}>
                 <ModalOwner visible={visible} setVisible={setVisible}>
                     <h3 className={style.form__title}>Редактировать профиль</h3>
-                    <EditProfile onClick={() => setVisible(false)} />
+                    <EditProfile onClickSave={HandlerEditSave} redactInput={redactInput} setRedactInput={setRedactInput} onClickCancel={() => setVisible(false)} />
                 </ModalOwner>
                 <div className={classCoverOwner}>
                     <ButtonOwnerUploading />

@@ -1,7 +1,7 @@
 import style from "./ButtonRedactProfile.module.css";
-const ButtonCancel = ({onClick}) => {
+const ButtonCancel = ({onClickCancel}) => {
     return (
-        <button onClick={onClick} type="button" className={[style.btn__redact_global,style.btn__cancel].join(" ")}>Отмена</button>
+        <button onClick={onClickCancel} type="button" className={[style.btn__redact_global,style.btn__cancel].join(" ")}>Отмена</button>
      );
 }
 

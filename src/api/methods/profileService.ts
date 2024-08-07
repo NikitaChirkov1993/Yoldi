@@ -16,13 +16,14 @@ export class ProfileService {
 
     };
 
-    patchProfile = async (args) => {
+    patchProfile = async (value,body) => {
         try {
             const response = await fetch(`https://frontend-test-api.yoldi.agency/api/profile`, {
                 method: "PATCH",
-                body: JSON.stringify(args),
+                body: JSON.stringify(body),
                 headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'X-API-KEY': `${value}`
                 }
             });
             const data = await response.json();

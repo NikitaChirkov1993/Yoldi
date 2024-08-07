@@ -15,6 +15,8 @@ export type AuthInfo = {
 
 const FormLogin = () => {
     const [authInfo, setAuthInfo] = useState<AuthInfo>({ email: '', password: '' });
+
+
     const [isDisabled, setIsDisabled] = useState(true);
     const router = useRouter();
 
@@ -30,7 +32,8 @@ const FormLogin = () => {
         event.preventDefault();
         const authData = await api.auth.login(authInfo);
         const profile = await api.profile.getProfile(authData.value);
-        console.log(authData, 'authData');
+        localStorage.setItem("authData", JSON.stringify(authData));
+        localStorage.setItem("password", JSON.stringify(authInfo));
 
         if (!authData.error) {
             if (!profile.error) {
