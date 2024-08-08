@@ -12,6 +12,7 @@ import ButtonOwnerUploading from "@/components/ui/buttonOwnerUser/ButtonOwnerUpl
 import ModalOwner from "@/components/ui/ModalOwner/ModalOwner";
 import { getSplitName } from "@/utilits/utilits";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import style from "./styles.module.css";
 
 export type RedactInfo = {
@@ -24,17 +25,16 @@ export type RedactInfo = {
   }
 
 const AccountOwner = () => {
-    const getProfile = localStorage.getItem("getProfile");
-    const profile = getProfile ? JSON.parse(getProfile) : null;
+    const router = useRouter();
+
+    const profileFromStorage = localStorage.getItem("profile");
+    const profile = profileFromStorage ? JSON.parse(profileFromStorage) : null;
 
     const authData = localStorage.getItem("authData");
     const parseAuthData = authData ? JSON.parse(authData) : null;
 
     const password = localStorage.getItem("password");
     const parsePassword = password ? JSON.parse(password) : null;
-
-
-
 
 
     const [visible, setVisible] = useState(false);
@@ -45,24 +45,25 @@ const AccountOwner = () => {
     const classImgOwner = classNames(style.block__img_global, style.block__imgOwner);
 
 
-    const [redactInput, setRedactInput] = useState<RedactInfo>({ name: "", imageId: profile.image.id, password: parsePassword.password, slug: "", coverId: null, description: "" });
-    console.log(profile,"localSrtorage");
-
-
+    const [redactInput, setRedactInput] = useState<RedactInfo>(profile || {
+        name: profile.name,
+        imageId: profile.image ? profile.image.id : null,
+        password: parsePassword.password,
+        slug: profile.slug,
+        coverId: profile.cover ? profile.cover.id : null,
+        description: profile.description,
+    });
 
     const HandlerEditSave = async (event: React.FormEvent) => {
         event.preventDefault();
         const redactData = await api.profile.patchProfile(parseAuthData.value, redactInput);
-        console.log(redactData,"redactData");
-        if (redactData.ok) {
-            console.log(redactData,"redactData");
+        setVisible(false);
+        if (!redactData.error) {
+            localStorage.setItem("profile", JSON.stringify(redactData));
+            console.log(redactData, "redactData");
+            router.push(`/account/owner/${redactData.slug}`);
         }
-        console.log(profile, "localSrtorage");
-        // console.log("клик на сервер");
-
     }
-
-
 
     return (
         <div className="wrapper__yoldi">
@@ -92,18 +93,33 @@ const AccountOwner = () => {
                 </div>
                 <div className={style.mainAccount__wrapper}>
                     <div className={style.mainAccount__container_left}>
-                        {profile.name && <h2 className={style.mainAccount__title}>{name}</h2>}
+                        {profile ?
+                            (<h2 className={style.mainAccount__title}>{profile.name}</h2>)
+                            :
+                            (profile.name && <h2 className={style.mainAccount__title}>{name}</h2>)
+                        }
 
                         <div className={style.mainAccount__email}>{profile.email}</div>
 
                         <div className={style.btnMobile}>
                             <ButtonOwnerRedact onClick={() => setVisible(true)} />
                         </div>
+                        {profile ?
+                            (<div className={style.mainAccount__text}>{profile.description}</div>)
+                            :
+                            (profile.description ?
+                                <div className={style.mainAccount__text}>
+                                    {profile.description}
+                                </div>
+                                :
+                                <div className={style.mainAccount__text}></div>
+                            )
+                         }
 
-                        {profile.description ? <div className={style.mainAccount__text}>{profile.description}</div> : <div className={style.mainAccount__text}></div>}
+
 
                         <Link href="/accounts">
-                            <ButtonOwnerExit onClick={() => localStorage.removeItem("getProfile")} />
+                            <ButtonOwnerExit onClick={() => localStorage.clear()} />
                         </Link>
                     </div>
 

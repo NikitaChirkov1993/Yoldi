@@ -1,5 +1,6 @@
 "use client";
 
+import { User } from "@/app/accounts/page";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonHeader from "../ui/buttonHeader/ButtonHeader";
@@ -8,8 +9,8 @@ import style from "./Header.module.css";
 import Avatar from "./avatar/Avatar";
 
 const Header = () => {
-    const getProfile = localStorage.getItem("getProfile");
-    const profile = getProfile ? JSON.parse(getProfile) :  null;
+    const profileFromStorage = localStorage.getItem("profile");
+    const profile: User | null = profileFromStorage ? JSON.parse(profileFromStorage) : null;
 
     return (
         <header className={style.header}>
@@ -20,12 +21,9 @@ const Header = () => {
 
                 <p className={style.text}>Разрабатываем и запускаем сложные веб проекты</p>
             </div>
-            {getProfile
+            {profile
                 ?
-                <Avatar
-                    naming={profile.name}
-                    image={profile.image}
-                />
+                <Avatar profile={profile} />
                 :
                 <Link href="/login">
                     <ButtonHeader>Войти</ButtonHeader>
@@ -36,20 +34,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// const getProfile = localStorage.getItem('getProfile');
-// let profile = null;
-
-// if (getProfile) {
-// try {
-//     profile = JSON.parse(getProfile);
-// } catch (error) {
-//     console.error('Error parsing JSON from localStorage', error);
-// }
-// }
-
-// if (profile && profile.name) {
-//     console.log(profile.name);
-//   } else {
-//     console.log('Profile or name not found');
-// }

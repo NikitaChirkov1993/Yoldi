@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import style from './styles.module.css';
 
-type User = {
+export type User = {
     name: string,
     email: string,
     slug: string,

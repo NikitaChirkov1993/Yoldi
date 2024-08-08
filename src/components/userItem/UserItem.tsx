@@ -1,4 +1,5 @@
 // "use client";
+
 import classNames from "classnames";
 import Image from "next/image";
 import { getSplitName } from "../../utilits/utilits";
@@ -6,9 +7,11 @@ import style from "./UserItem.module.css";
 
 const UserItem = (props) => {
 
-    const { name, letter } = getSplitName(props.name)
+    const { name, letter } = getSplitName(props.name);
 
     const classEmailactive = classNames(style.item__rigt_email, style.active_email);
+
+    const imageUrl = props.image?.url && props.image.url.startsWith('https://') ? props.image.url : null;
 
 
     return (
@@ -16,12 +19,12 @@ const UserItem = (props) => {
             <div className={style.item__left}>
                 <div className={style.item__img}>
                     <div className={style.item__imges}>
-                        {props.image ?
+                        {imageUrl ?
                             <Image
                                 width={50}
                                 height={50}
                                 alt="Аватар"
-                                src={props.image.url}
+                                src={imageUrl}
                                 priority />
                             :
                             letter

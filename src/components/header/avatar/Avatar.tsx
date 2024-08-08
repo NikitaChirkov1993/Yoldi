@@ -1,23 +1,34 @@
+import { User } from "@/app/accounts/page";
 import { getSplitName } from "@/utilits/utilits";
 import Link from "next/link";
+import { FC } from "react";
 import style from "./Avatar.module.css";
 
-const Avatar = ({ naming,image }) => {
-    const { name, letter } = getSplitName(naming);
+type AvatarProps = {
+    profile: User;
+}
 
-    const getProfile = localStorage.getItem("getProfile");
-    const profile = getProfile ? JSON.parse(getProfile) : null;
+const Avatar: FC<AvatarProps> = ({profile}) => {
+    const { name, letter } = getSplitName(profile.name);
+
     return (
         <div className={style.header__info_right}>
-            <p className={style.name}>{name}</p>
+            {profile ?
+                (<p className={style.name}>{profile.name}</p>)
+                :
+                (<p className={style.name}>{name}</p>)
+            }
             <Link href={`/account/owner/${profile.slug}`}>
-                {!image && (<div className={style.img__global}>
+                {!profile.image && (<div className={style.img__global}>
                     <div className={style.imges}>{letter}</div>
-                </div>)}
+                </div>)
+                }
 
-                {image && (<div style={{ backgroundImage: `url(${image.url})` }} className={style.img__global}>
+                {profile.image &&
+                (<div style={{ backgroundImage: `url(${profile.image.url})` }} className={style.img__global}>
                     <div  className={style.imges}></div>
-                </div>)}
+                </div>)
+                }
             </Link>
         </div>
     );

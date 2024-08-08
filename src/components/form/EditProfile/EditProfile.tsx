@@ -11,7 +11,7 @@ type EditProfile = {
     onClickSave: (event: React.FormEvent<HTMLButtonElement>) => Promise<void>;
 }
 
-const EditProfile: FC<EditProfile> = ({redactInput,setRedactInput,onClickCancel,onClickSave}) => {
+const EditProfile: FC<EditProfile> = ({redactInput, setRedactInput, onClickCancel, onClickSave}) => {
     return (
         <div  className={style.form} >
             <p className={style.label__global}>

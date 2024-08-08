@@ -38,7 +38,7 @@ const FormLogin = () => {
         if (!authData.error) {
             if (!profile.error) {
                 router.push('/accounts');
-                localStorage.setItem("getProfile", JSON.stringify(profile));
+                localStorage.setItem("profile", JSON.stringify(profile));
                 console.log(profile,"profile");
             }
         }
