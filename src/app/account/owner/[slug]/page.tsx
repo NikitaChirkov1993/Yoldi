@@ -65,6 +65,32 @@ const AccountOwner = () => {
         }
     }
 
+    //ОТПРАВКА КАРТИНОК
+    const [file, setFile] = useState(null);
+
+
+    const handleFileChange = async (event) => {
+        const selectedFile = event.target.files[0]
+        setFile(selectedFile);
+        if (selectedFile) {
+            console.log(selectedFile,"file");
+            // formData.append("file", file);
+
+        }
+        const formData = new FormData();
+        formData.append("file",selectedFile )
+
+        const fileData = await api.image.postImage(formData);
+        if (!fileData.error) {
+            console.log(fileData, "fileData");
+            // console.log(authData);
+        }
+
+
+        // console.log(imageSrc,"imageSRC");
+
+    };
+
     return (
         <div className="wrapper__yoldi">
             <Header />
@@ -87,7 +113,12 @@ const AccountOwner = () => {
                             className={style.block__img_wrapper}
                             style={{ backgroundImage: `url(${profile.image.url})` }}
                         >
-                        <input className={style.block__img_input} type="file" />
+                            <input
+                                className={style.block__img_input}
+                                type="file"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                            />
                         </div>
                     )}
                 </div>
