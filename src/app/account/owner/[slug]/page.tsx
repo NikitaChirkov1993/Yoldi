@@ -2,7 +2,7 @@
 
 import Header from "@/components/header/Header";
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { api } from "@/api/api";
 import EditProfile from "@/components/form/EditProfile/EditProfile";
@@ -36,16 +36,16 @@ const AccountOwner = () => {
     const password = localStorage.getItem("password");
     const parsePassword = password ? JSON.parse(password) : null;
 
+    const { name, letter } = getSplitName(profile.name);
 
     const [visible, setVisible] = useState(false);
 
-    const { name, letter } = getSplitName(profile.name);
 
     const classCoverOwner = classNames(style.block__cover_global, style.block__coverOwner);
     const classImgOwner = classNames(style.block__img_global, style.block__imgOwner);
 
 
-    const [redactInput, setRedactInput] = useState<RedactInfo>(profile || {
+    const [redactInput, setRedactInput] = useState<RedactInfo>({
         name: profile.name,
         imageId: profile.image ? profile.image.id : null,
         password: parsePassword.password,
@@ -53,6 +53,7 @@ const AccountOwner = () => {
         coverId: profile.cover ? profile.cover.id : null,
         description: profile.description,
     });
+    // console.log(redactInput, "redactInput");
 
     const HandlerEditSave = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -60,36 +61,56 @@ const AccountOwner = () => {
         setVisible(false);
         if (!redactData.error) {
             localStorage.setItem("profile", JSON.stringify(redactData));
-            console.log(redactData, "redactData");
+            // console.log(redactData, "redactData");
             router.push(`/account/owner/${redactData.slug}`);
         }
     }
 
     //ОТПРАВКА КАРТИНОК
-    const [file, setFile] = useState(null);
 
+    const [loading, setLoading] = useState(false);
 
     const handleFileChange = async (event) => {
         const selectedFile = event.target.files[0]
-        setFile(selectedFile);
         if (selectedFile) {
-            console.log(selectedFile,"file");
+            console.log(selectedFile, "file");
             // formData.append("file", file);
-
-        }
+        };
         const formData = new FormData();
-        formData.append("file",selectedFile )
+        formData.append("file", selectedFile)
 
+        setLoading(true);
         const fileData = await api.image.postImage(formData);
         if (!fileData.error) {
             console.log(fileData, "fileData");
-            // console.log(authData);
+            const redactData = await api.profile.patchProfile(parseAuthData.value, {
+                ...redactInput,
+                imageId: fileData.id
+            });
+            localStorage.setItem("profile", JSON.stringify(redactData));
+            if (redactData) {
+                setLoading(false);
+                setRedactInput({
+                    ...redactInput,
+                    imageId: fileData.id
+                })
+            }
+            // router.push(`/account/owner/${redactData.slug}`);
         }
-
-
-        // console.log(imageSrc,"imageSRC");
-
     };
+
+    useEffect(() => {
+        const updateProfile = async () => {
+            const redactData = await api.profile.patchProfile(parseAuthData.value, redactInput);
+            localStorage.setItem("profile", JSON.stringify(redactData));
+            // router.push(`/account/owner/${redactData.slug}`);
+        }
+        if (redactInput.imageId) {
+            updateProfile();
+        }
+        console.log(redactInput,"redactInput");
+
+    }, [handleFileChange]);
 
     return (
         <div className="wrapper__yoldi">
