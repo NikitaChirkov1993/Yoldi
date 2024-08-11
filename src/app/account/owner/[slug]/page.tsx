@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { api } from "@/api/api";
 import EditProfile from "@/components/form/EditProfile/EditProfile";
+import ButtonOwnerDelete from "@/components/ui/buttonOwnerUser/ButtonOwnerDelete";
 import ButtonOwnerExit from "@/components/ui/buttonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/ui/buttonOwnerUser/ButtonOwnerRedact";
 import ButtonOwnerUploading from "@/components/ui/buttonOwnerUser/ButtonOwnerUploading";
@@ -56,44 +57,80 @@ const AccountOwner = () => {
 
     const HandlerEditSave = async (event: React.FormEvent) => {
         event.preventDefault();
-        const redactData = await api.profile.patchProfile(parseAuthData.value, redactInput);
+        const editData = await api.profile.patchProfile(parseAuthData.value, redactInput);
         setVisible(false);
-        if (!redactData.error) {
-            localStorage.setItem("profile", JSON.stringify(redactData));
-            console.log(redactData, "redactData");
-            router.push(`/account/owner/${redactData.slug}`);
+        if (!editData.error) {
+            localStorage.setItem("profile", JSON.stringify(editData));
+            console.log(editData, "editData");
+            router.push(`/account/owner/${editData.slug}`);
         }
     }
 
     //ОТПРАВКА КАРТИНОК:
-    const handleFileChange = async (event) => {
-        const selectedFile = event.target.files[0]
-
+    const handleAvatarChange = async (event) => {
+        const selectedAvatar = event.target.files[0]
         const formData = new FormData();
-        formData.append("file", selectedFile)
+        formData.append("file", selectedAvatar);
 
-        const fileData = await api.image.postImage(formData);
-        if (!fileData.error) {
-            console.log(fileData, "fileData");
-            const redactData = await api.profile.patchProfile(parseAuthData.value, {
+        const avatarData = await api.image.postImage(formData);
+        if (!avatarData.error) {
+            console.log(avatarData, "avatarData");
+            const editAvatarData = await api.profile.patchProfile(parseAuthData.value, {
                 ...redactInput,
-                imageId: fileData.id
+                imageId: avatarData.id
             });
-            localStorage.setItem("profile", JSON.stringify(redactData));
-            if (redactData) {
+            localStorage.setItem("profile", JSON.stringify(editAvatarData));
+            if (editAvatarData) {
+                console.log(editAvatarData,"editAvatarData");
+
                 setRedactInput({
                     ...redactInput,
-                    imageId: fileData.id
+                    imageId: avatarData.id
                 })
             }
         }
     };
 
+    const handleCoverChange = async (event) => {
+        const selectedCover = event.target.files[0]
 
-    // const coverRouter = useRef();
-    // const handleCoverImg = () => {
+        const formData = new FormData();
+        formData.append("file", selectedCover);
 
-    // }
+        const coverData = await api.image.postImage(formData);
+        if (!coverData.error) {
+            console.log(coverData, "coverData");
+            const editCoverData = await api.profile.patchProfile(parseAuthData.value, {
+                ...redactInput,
+                coverId: coverData.id
+            });
+            localStorage.setItem("profile", JSON.stringify(editCoverData));
+            if (editCoverData) {
+                setRedactInput({
+                    ...redactInput,
+                    coverId: coverData.id
+                })
+            }
+        }
+    }
+
+    //Удаление cover:
+    const handleCoverDelete = async () => {
+        console.log("удалить cover");
+        const editCoverData = await api.profile.patchProfile(parseAuthData.value, {
+            ...redactInput,
+            coverId: null
+        });
+        localStorage.setItem("profile", JSON.stringify(editCoverData));
+            if (editCoverData) {
+                setRedactInput({
+                    ...redactInput,
+                    coverId: null
+                })
+            }
+
+    }
+
 
 
     return (
@@ -104,12 +141,24 @@ const AccountOwner = () => {
                     <h3 className={style.form__title}>Редактировать профиль</h3>
                     <EditProfile onClickSave={HandlerEditSave} redactInput={redactInput} setRedactInput={setRedactInput} onClickCancel={() => setVisible(false)} />
                 </ModalOwner>
-                <div className={classCoverOwner}>
-                    <ButtonOwnerUploading />
+                <div style={{ backgroundImage: profile.cover?.url ? `url(${profile.cover.url})` : 'none' }} className={classCoverOwner}>
+
+                    {profile.cover ?
+                        <ButtonOwnerDelete onClick={handleCoverDelete} />
+                        :
+                        <ButtonOwnerUploading onChange={handleCoverChange} />
+                    }
+
 
                     {!profile.image && (
                         <div className={classImgOwner}>
                             <p>{letter}</p>
+                            <input
+                                className={style.block__img_input}
+                                type="file"
+                                accept="image/*"
+                                onChange={handleAvatarChange}
+                            />
                         </div>
                     )}
 
@@ -122,12 +171,12 @@ const AccountOwner = () => {
                                 className={style.block__img_input}
                                 type="file"
                                 accept="image/*"
-                                onChange={handleFileChange}
+                                onChange={handleAvatarChange}
                             />
                         </div>
                     )}
                 </div>
-                <div className={style.mainAccount__wrapper}>
+                <div className={style.mainAccount__container}>
                     <div className={style.mainAccount__container_left}>
                         {profile ?
                             (<h2 className={style.mainAccount__title}>{profile.name}</h2>)

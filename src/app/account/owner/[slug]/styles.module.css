@@ -60,35 +60,17 @@
     overflow: hidden;
 }
 
-.block__coverNO {
-    background-color: var(--background-secondary);
-    border-bottom: 1px solid var(--strokes-secondady);
-}
-
-.block__imgNO {
-    background-color: var(--background-secondary);
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 140%;
-    color: var(--txt-color);
-}
-
-.block__coverYES {
-    background-size: cover;
-    background-position: center;
-}
-
-.block__imgYES {
-    background-size: cover;
-}
 
 .mainAccount__container {
     margin-left: 240px;
     margin-right: 30px;
+    padding-bottom: 40px;
+    max-width: 800px;
     display: flex;
-    flex-direction: column;
-    max-width: 600px;
+    justify-content: space-between;
 }
+
+
 
 .mainAccount__container_left {
     display: flex;
@@ -126,6 +108,9 @@
     justify-content: center;
     align-items: center;
     background-color: var(--background-secondary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     border-bottom: 1px solid var(--strokes-secondady);
 }
 
@@ -155,13 +140,6 @@
     }
 }
 
-.mainAccount__wrapper {
-    margin-left: 240px;
-    margin-right: 30px;
-    max-width: 800px;
-    display: flex;
-    justify-content: space-between;
-}
 
 .btnDesktop {
     display: block;

@@ -4,22 +4,24 @@ import imageLoading from "./../../../../public/img/image.svg";
 
 import style from "./ButtonOwnerUser.module.css";
 
-const ButtonOwnerDelete = () => {
+const ButtonOwnerDelete = ({ onClick }) => {
     return (
-        <button className={style.btn__uploading_delete }>
-        <Image
-            alt="Загрузить"
-            src={imageDelete}
-            priority
-        />
-        <p className={style.mainAccount__btn_text}>Удалить</p>
-        <Image
-            alt="Загрузить"
-            src={imageLoading}
-            priority
-        />
-    </button>
-     );
-}
+        <div onClick={onClick} className={style.btn__uploading_delete}>
+            <Image
+                alt="Загрузить"
+                src={imageDelete}
+                priority
+            />
+
+            <p className={style.mainAccount__btn_text}>Удалить</p>
+
+            <Image
+                alt="Загрузить"
+                src={imageLoading}
+                priority
+            />
+        </div>
+    );
+};
 
 export default ButtonOwnerDelete;
