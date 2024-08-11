@@ -11,6 +11,10 @@ const ButtonOwnerUploading = () => {
                 src={uploading}
                 priority
             />
+            {/* <input
+                className={style.btn__input}
+                type="file"
+            /> */}
             <p className={style.mainAccount__btn_text}>Загрузить</p>
             <Image
                 alt="Загрузить"
