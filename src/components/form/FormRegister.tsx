@@ -15,8 +15,6 @@ export type RegInfo = {
     password: string;
 }
 
-
-
 const FormRegister = () => {
     const [regInfo, setRegInfo] = useState<RegInfo>({ email: '',name: '', password: '' });
     const [isDisabled, setIsDisabled] = useState(true);
@@ -37,8 +35,6 @@ const FormRegister = () => {
             router.push('/login');
         }
     }
-
-
 
     return (
         <form onSubmit={submitHandlerReg} className={style.form}>

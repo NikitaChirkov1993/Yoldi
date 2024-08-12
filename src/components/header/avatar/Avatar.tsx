@@ -5,27 +5,27 @@ import { FC } from "react";
 import style from "./Avatar.module.css";
 
 type AvatarProps = {
-    profile: User;
+    profileParsed: User;
 }
 
-const Avatar: FC<AvatarProps> = ({profile}) => {
-    const { name, letter } = getSplitName(profile.name);
+const Avatar: FC<AvatarProps> = ({profileParsed}) => {
+    const { name, letter } = getSplitName(profileParsed.name);
 
     return (
         <div className={style.header__info_right}>
-            {profile ?
-                (<p className={style.name}>{profile.name}</p>)
+            {profileParsed ?
+                (<p className={style.name}>{profileParsed.name}</p>)
                 :
                 (<p className={style.name}>{name}</p>)
             }
-            <Link href={`/account/owner/${profile.slug}`}>
-                {!profile.image && (<div className={style.img__global}>
+            <Link href={`/account/owner/${profileParsed.slug}`}>
+                {!profileParsed.image && (<div className={style.img__global}>
                     <div className={style.imges}>{letter}</div>
                 </div>)
                 }
 
-                {profile.image &&
-                (<div style={{ backgroundImage: `url(${profile.image.url})` }} className={style.img__global}>
+                {profileParsed.image &&
+                (<div style={{ backgroundImage: `url(${profileParsed.image.url})` }} className={style.img__global}>
                     <div  className={style.imges}></div>
                 </div>)
                 }

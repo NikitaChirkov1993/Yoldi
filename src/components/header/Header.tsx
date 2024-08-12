@@ -9,8 +9,8 @@ import style from "./Header.module.css";
 import Avatar from "./avatar/Avatar";
 
 const Header = () => {
-    const profileFromStorage = localStorage.getItem("profile");
-    const profile: User | null = profileFromStorage ? JSON.parse(profileFromStorage) : null;
+    const profileStored = localStorage.getItem("profileStored");
+    const profileParsed: User | null = profileStored ? JSON.parse(profileStored) : null;
 
     return (
         <header className={style.header}>
@@ -21,9 +21,9 @@ const Header = () => {
 
                 <p className={style.text}>Разрабатываем и запускаем сложные веб проекты</p>
             </div>
-            {profile
+            {profileParsed
                 ?
-                <Avatar profile={profile} />
+                <Avatar profileParsed={profileParsed} />
                 :
                 <Link href="/login">
                     <ButtonHeader>Войти</ButtonHeader>

@@ -28,16 +28,16 @@ export type RedactInfo = {
 const AccountOwner = () => {
     const router = useRouter();
 
-    const profileFromStorage = localStorage.getItem("profile");
-    const profile = profileFromStorage ? JSON.parse(profileFromStorage) : null;
+    const profileStored = localStorage.getItem("profileStored");
+    const profileParsed = profileStored? JSON.parse(profileStored) : null;
 
-    const authData = localStorage.getItem("authData");
-    const parseAuthData = authData ? JSON.parse(authData) : null;
+    const authValueStored= localStorage.getItem("authValueStored");
+    const authValueParsed = authValueStored ? JSON.parse(authValueStored) : null;
 
-    const password = localStorage.getItem("password");
-    const parsePassword = password ? JSON.parse(password) : null;
+    const authInfoStored = localStorage.getItem("authInfoStored");
+    const authInfoParsed = authInfoStored ? JSON.parse(authInfoStored) : null;
 
-    const { name, letter } = getSplitName(profile.name);
+    const { name, letter } = getSplitName(profileParsed.name);
 
     const [visible, setVisible] = useState(false);
 
@@ -47,20 +47,20 @@ const AccountOwner = () => {
 
 
     const [redactInput, setRedactInput] = useState<RedactInfo>({
-        name: profile.name,
-        imageId: profile.image ? profile.image.id : null,
-        password: parsePassword.password,
-        slug: profile.slug,
-        coverId: profile.cover ? profile.cover.id : null,
-        description: profile.description,
+        name: profileParsed.name,
+        imageId: profileParsed.image ? profileParsed.image.id : null,
+        password: authInfoParsed.password,
+        slug: profileParsed.slug,
+        coverId: profileParsed.cover ? profileParsed.cover.id : null,
+        description: profileParsed.description,
     });
 
     const HandlerEditSave = async (event: React.FormEvent) => {
         event.preventDefault();
-        const editData = await api.profile.patchProfile(parseAuthData.value, redactInput);
+        const editData = await api.profile.patchProfile(authValueParsed.value, redactInput);
         setVisible(false);
         if (!editData.error) {
-            localStorage.setItem("profile", JSON.stringify(editData));
+            localStorage.setItem("profileStored", JSON.stringify(editData));
             console.log(editData, "editData");
             router.push(`/account/owner/${editData.slug}`);
         }
@@ -75,11 +75,11 @@ const AccountOwner = () => {
         const avatarData = await api.image.postImage(formData);
         if (!avatarData.error) {
             console.log(avatarData, "avatarData");
-            const editAvatarData = await api.profile.patchProfile(parseAuthData.value, {
+            const editAvatarData = await api.profile.patchProfile(authValueParsed.value, {
                 ...redactInput,
                 imageId: avatarData.id
             });
-            localStorage.setItem("profile", JSON.stringify(editAvatarData));
+            localStorage.setItem("profileStored", JSON.stringify(editAvatarData));
             if (editAvatarData) {
                 console.log(editAvatarData,"editAvatarData");
 
@@ -100,11 +100,11 @@ const AccountOwner = () => {
         const coverData = await api.image.postImage(formData);
         if (!coverData.error) {
             console.log(coverData, "coverData");
-            const editCoverData = await api.profile.patchProfile(parseAuthData.value, {
+            const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
                 ...redactInput,
                 coverId: coverData.id
             });
-            localStorage.setItem("profile", JSON.stringify(editCoverData));
+            localStorage.setItem("profileStored", JSON.stringify(editCoverData));
             if (editCoverData) {
                 setRedactInput({
                     ...redactInput,
@@ -117,11 +117,11 @@ const AccountOwner = () => {
     //Удаление cover:
     const handleCoverDelete = async () => {
         console.log("удалить cover");
-        const editCoverData = await api.profile.patchProfile(parseAuthData.value, {
+        const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
             ...redactInput,
             coverId: null
         });
-        localStorage.setItem("profile", JSON.stringify(editCoverData));
+        localStorage.setItem("profileStored", JSON.stringify(editCoverData));
             if (editCoverData) {
                 setRedactInput({
                     ...redactInput,
@@ -141,16 +141,16 @@ const AccountOwner = () => {
                     <h3 className={style.form__title}>Редактировать профиль</h3>
                     <EditProfile onClickSave={HandlerEditSave} redactInput={redactInput} setRedactInput={setRedactInput} onClickCancel={() => setVisible(false)} />
                 </ModalOwner>
-                <div style={{ backgroundImage: profile.cover?.url ? `url(${profile.cover.url})` : 'none' }} className={classCoverOwner}>
+                <div style={{ backgroundImage: profileParsed.cover?.url ? `url(${profileParsed.cover.url})` : 'none' }} className={classCoverOwner}>
 
-                    {profile.cover ?
+                    {profileParsed.cover ?
                         <ButtonOwnerDelete onClick={handleCoverDelete} />
                         :
                         <ButtonOwnerUploading onChange={handleCoverChange} />
                     }
 
 
-                    {!profile.image && (
+                    {!profileParsed.image && (
                         <div className={classImgOwner}>
                             <p>{letter}</p>
                             <input
@@ -162,10 +162,10 @@ const AccountOwner = () => {
                         </div>
                     )}
 
-                    {profile.image && (
+                    {profileParsed.image && (
                         <div
                             className={style.block__img_wrapper}
-                            style={{ backgroundImage: `url(${profile.image.url})` }}
+                            style={{ backgroundImage: `url(${profileParsed.image.url})` }}
                         >
                             <input
                                 className={style.block__img_input}
@@ -178,23 +178,23 @@ const AccountOwner = () => {
                 </div>
                 <div className={style.mainAccount__container}>
                     <div className={style.mainAccount__container_left}>
-                        {profile ?
-                            (<h2 className={style.mainAccount__title}>{profile.name}</h2>)
+                        {profileParsed ?
+                            (<h2 className={style.mainAccount__title}>{profileParsed.name}</h2>)
                             :
-                            (profile.name && <h2 className={style.mainAccount__title}>{name}</h2>)
+                            (profileParsed.name && <h2 className={style.mainAccount__title}>{name}</h2>)
                         }
 
-                        <div className={style.mainAccount__email}>{profile.email}</div>
+                        <div className={style.mainAccount__email}>{profileParsed.email}</div>
 
                         <div className={style.btnMobile}>
                             <ButtonOwnerRedact onClick={() => setVisible(true)} />
                         </div>
-                        {profile ?
-                            (<div className={style.mainAccount__text}>{profile.description}</div>)
+                        {profileParsed ?
+                            (<div className={style.mainAccount__text}>{profileParsed.description}</div>)
                             :
-                            (profile.description ?
+                            (profileParsed.description ?
                                 <div className={style.mainAccount__text}>
-                                    {profile.description}
+                                    {profileParsed.description}
                                 </div>
                                 :
                                 <div className={style.mainAccount__text}></div>

@@ -31,20 +31,17 @@ const FormLogin = () => {
     const submitHandler = async (event: React.FormEvent) => {
         event.preventDefault();
         const authData = await api.auth.login(authInfo);
-        const profile = await api.profile.getProfile(authData.value);
-        localStorage.setItem("authData", JSON.stringify(authData));
-        localStorage.setItem("password", JSON.stringify(authInfo));
+        const profileData = await api.profile.getProfile(authData.value);
+        localStorage.setItem("authValueStored", JSON.stringify(authData));
+        localStorage.setItem("authInfoStored", JSON.stringify(authInfo));
 
         if (!authData.error) {
-            if (!profile.error) {
+            if (!profileData.error) {
                 router.push('/accounts');
-                localStorage.setItem("profile", JSON.stringify(profile));
-                console.log(profile,"profile");
+                localStorage.setItem("profileStored", JSON.stringify(profileData));
             }
         }
     }
-
-
 
     return (
         <form onSubmit={submitHandler}  className={style.form} >
