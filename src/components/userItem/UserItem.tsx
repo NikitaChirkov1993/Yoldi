@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import Image from "next/image";
-import { getSplitName } from "../../utilits/utilits";
+import { getSplitName } from "../../utils/utils";
 import style from "./UserItem.module.css";
 
 const UserItem = (props) => {

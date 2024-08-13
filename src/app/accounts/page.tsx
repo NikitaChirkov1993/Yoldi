@@ -5,28 +5,10 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import UserItem from "@/components/userItem/UserItem";
 import UserList from "@/components/userList/UserList";
+import { User } from "@/types/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import style from './styles.module.css';
-
-export type User = {
-    name: string,
-    email: string,
-    slug: string,
-    description: string,
-    image: {
-        id: string,
-        url: string,
-        width: string,
-        height: string
-    },
-    cover: {
-        id: string,
-        url: string,
-        width: string,
-        height: string
-    }
-}
 
 const Accounts = () => {
 
@@ -39,7 +21,6 @@ const Accounts = () => {
                 setData(usersData);
             }
         };
-
         fetchData();
     }, []);
 

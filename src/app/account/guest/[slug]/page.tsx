@@ -2,14 +2,15 @@
 
 import { api } from "@/api/api";
 import Header from "@/components/header/Header";
-import { getSplitName } from "@/utilits/utilits";
+import { getSplitName } from "@/utils/utils";
 import classNames from 'classnames';
 import { useEffect, useState } from "react";
 
 import style from './styles.module.css';
 
 
-const AccountGuest = ({ params }: {params: {slug: string}}) => {
+const AccountGuest = ({ params }: { params: { slug: string } }) => {
+
     const [data, setData] = useState();
 
     useEffect(() => {
@@ -23,7 +24,6 @@ const AccountGuest = ({ params }: {params: {slug: string}}) => {
         fetchData();
     }, []);
 
-    console.log(data, "guestDATA");
 
 
 
@@ -37,9 +37,11 @@ const AccountGuest = ({ params }: {params: {slug: string}}) => {
     const imgAccount = data.image;
     const coverAccount = data.cover;
 
-
-
     const { name, letter } = getSplitName(nameAccount);
+
+
+
+
     const classCoverNO = classNames(style.block__cover_global , style.block__coverNO);
     const classImgNO = classNames(style.block__img_global, style.block__imgNO);
 

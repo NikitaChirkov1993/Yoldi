@@ -1,5 +1,5 @@
 import { User } from "@/app/accounts/page";
-import { getSplitName } from "@/utilits/utilits";
+import { getSplitName } from "@/utils/utils";
 import Link from "next/link";
 import { FC } from "react";
 import style from "./Avatar.module.css";

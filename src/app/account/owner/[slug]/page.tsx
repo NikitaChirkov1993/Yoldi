@@ -11,19 +11,11 @@ import ButtonOwnerExit from "@/components/ui/buttonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/ui/buttonOwnerUser/ButtonOwnerRedact";
 import ButtonOwnerUploading from "@/components/ui/buttonOwnerUser/ButtonOwnerUploading";
 import ModalOwner from "@/components/ui/ModalOwner/ModalOwner";
-import { getSplitName } from "@/utilits/utilits";
+import { EditInfo } from "@/types/types";
+import { getSplitName } from "@/utils/utils";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import style from "./styles.module.css";
-
-export type EditInfo = {
-    name: string;
-    imageId: string;
-    password: string;
-    slug: string;
-    coverId: null;
-    description: string;
-  }
 
 const AccountOwner = () => {
     const router = useRouter();
