@@ -3,7 +3,7 @@
 import { api } from "@/api/api";
 import ButtonForm from "@/components/ui/buttonForm/ButtonForm";
 import InputNameRegister from "@/components/ui/inputForm/InputNameRegister";
-import { RegInfo } from "@/types/types";
+import { ErrorType, RegInfo } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import InputEmailRegister from "../ui/inputForm/InputEmailRegister";
@@ -14,14 +14,23 @@ const FormRegister = () => {
     const [regInfo, setRegInfo] = useState<RegInfo>({ email: '',name: '', password: '' });
     const [isDisabled, setIsDisabled] = useState(true);
     const router = useRouter();
-    const [error, setError] = useState();
+    const [error, setError] = useState<ErrorType>();
 
     useEffect(() => {
-        if (regInfo.email.length >= 5 && regInfo.password.length >= 5 && regInfo.name.length >= 1) {
+        if (regInfo.name.length >= 3) {
+            setIsDisabled(false);
+        }
+
+        if (regInfo.password.length >= 5) {
+            setIsDisabled(false);
+        }
+
+        if (regInfo.email.length>=3) {
             setIsDisabled(false);
         }
         else {
             setIsDisabled(true);
+            setError({})
         }
 
     }, [regInfo])
@@ -29,10 +38,14 @@ const FormRegister = () => {
     const submitHandlerReg = async (event: React.FormEvent) => {
         event.preventDefault();
         const authData = await api.auth.register(regInfo);
-        if (!authData.error) {
+        if (authData.message) {
+            setError({ message: authData.message });
+        } else if (!authData.error) {
             router.push('/login');
         }
     }
+    console.log(error,"ОШИБКА ОШИБКА");
+
 
     return (
         <form onSubmit={submitHandlerReg} className={style.form}>
