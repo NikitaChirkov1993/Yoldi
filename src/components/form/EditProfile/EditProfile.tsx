@@ -1,17 +1,17 @@
-import { RedactInfo } from "@/app/account/owner/[slug]/page";
+import { EditInfo } from "@/app/account/owner/[slug]/page";
 import ButtonCancel from "@/components/ui/buttonOwnerUser/ButtonRedactProfile/ButtonCancel";
 import ButtonSave from "@/components/ui/buttonOwnerUser/ButtonRedactProfile/ButtonSave";
 import { Dispatch, FC, SetStateAction } from "react";
 import style from "./EditProfile.module.css";
 
 type EditProfile = {
-    redactInput: RedactInfo;
-    setRedactInput: Dispatch<SetStateAction<RedactInfo>>;
+    editInfo: EditInfo;
+    setEditInfo: Dispatch<SetStateAction<EditInfo>>;
     onClickCancel: () => void;
     onClickSave: (event: React.FormEvent<HTMLButtonElement>) => Promise<void>;
 }
 
-const EditProfile: FC<EditProfile> = ({redactInput, setRedactInput, onClickCancel, onClickSave}) => {
+const EditProfile: FC<EditProfile> = ({editInfo, setEditInfo, onClickCancel, onClickSave}) => {
     return (
         <div  className={style.form} >
             <p className={style.label__global}>
@@ -23,8 +23,8 @@ const EditProfile: FC<EditProfile> = ({redactInput, setRedactInput, onClickCance
                     className={style.input__global}
                     type="text" id="name"
                     name="name"
-                    onChange={(e) => setRedactInput({...redactInput, ["name"]: e.target.value})}
-                    value={redactInput.name}
+                    onChange={(e) => setEditInfo({...editInfo, ["name"]: e.target.value})}
+                    value={editInfo.name}
                 />
             </div>
 
@@ -40,8 +40,8 @@ const EditProfile: FC<EditProfile> = ({redactInput, setRedactInput, onClickCance
                         type="text"
                         id="addressProfile"
                         name="addressProfile"
-                        onChange={(e) => setRedactInput({ ...redactInput, ["slug"]: e.target.value })}
-                        value={redactInput.slug}
+                        onChange={(e) => setEditInfo({ ...editInfo, ["slug"]: e.target.value })}
+                        value={editInfo.slug}
                     />
                 </div>
             </div>
@@ -53,8 +53,8 @@ const EditProfile: FC<EditProfile> = ({redactInput, setRedactInput, onClickCance
             <textarea
                 className={[style.textarea, style.input__global].join(" ")} name="description"
                 id="description"
-                onChange={(e) => setRedactInput({ ...redactInput, ["description"]: e.target.value })}
-                value={redactInput.description}
+                onChange={(e) => setEditInfo({ ...editInfo, ["description"]: e.target.value })}
+                value={editInfo.description}
             >
             </textarea>
 

@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import style from "./styles.module.css";
 
-export type RedactInfo = {
+export type EditInfo = {
     name: string;
     imageId: string;
     password: string;
@@ -46,7 +46,7 @@ const AccountOwner = () => {
     const classImgOwner = classNames(style.block__img_global, style.block__imgOwner);
 
 
-    const [redactInput, setRedactInput] = useState<RedactInfo>({
+    const [editInfo, setEditInfo] = useState<EditInfo>({
         name: profileParsed.name,
         imageId: profileParsed.image ? profileParsed.image.id : null,
         password: authInfoParsed.password,
@@ -57,7 +57,7 @@ const AccountOwner = () => {
 
     const HandlerEditSave = async (event: React.FormEvent) => {
         event.preventDefault();
-        const editData = await api.profile.patchProfile(authValueParsed.value, redactInput);
+        const editData = await api.profile.patchProfile(authValueParsed.value, editInfo);
         setVisible(false);
         if (!editData.error) {
             localStorage.setItem("profileStored", JSON.stringify(editData));
@@ -76,15 +76,15 @@ const AccountOwner = () => {
         if (!avatarData.error) {
             console.log(avatarData, "avatarData");
             const editAvatarData = await api.profile.patchProfile(authValueParsed.value, {
-                ...redactInput,
+                ...editInfo,
                 imageId: avatarData.id
             });
             localStorage.setItem("profileStored", JSON.stringify(editAvatarData));
             if (editAvatarData) {
                 console.log(editAvatarData,"editAvatarData");
 
-                setRedactInput({
-                    ...redactInput,
+                setEditInfo({
+                    ...editInfo,
                     imageId: avatarData.id
                 })
             }
@@ -101,13 +101,13 @@ const AccountOwner = () => {
         if (!coverData.error) {
             console.log(coverData, "coverData");
             const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
-                ...redactInput,
+                ...editInfo,
                 coverId: coverData.id
             });
             localStorage.setItem("profileStored", JSON.stringify(editCoverData));
             if (editCoverData) {
-                setRedactInput({
-                    ...redactInput,
+                setEditInfo({
+                    ...editInfo,
                     coverId: coverData.id
                 })
             }
@@ -118,13 +118,13 @@ const AccountOwner = () => {
     const handleCoverDelete = async () => {
         console.log("удалить cover");
         const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
-            ...redactInput,
+            ...editInfo,
             coverId: null
         });
         localStorage.setItem("profileStored", JSON.stringify(editCoverData));
             if (editCoverData) {
-                setRedactInput({
-                    ...redactInput,
+                setEditInfo({
+                    ...editInfo,
                     coverId: null
                 })
             }
@@ -139,7 +139,7 @@ const AccountOwner = () => {
             <main className={style.mainAccount}>
                 <ModalOwner visible={visible} setVisible={setVisible}>
                     <h3 className={style.form__title}>Редактировать профиль</h3>
-                    <EditProfile onClickSave={HandlerEditSave} redactInput={redactInput} setRedactInput={setRedactInput} onClickCancel={() => setVisible(false)} />
+                    <EditProfile onClickSave={HandlerEditSave} editInfo={editInfo} setEditInfo={setEditInfo} onClickCancel={() => setVisible(false)} />
                 </ModalOwner>
                 <div style={{ backgroundImage: profileParsed.cover?.url ? `url(${profileParsed.cover.url})` : 'none' }} className={classCoverOwner}>
 
