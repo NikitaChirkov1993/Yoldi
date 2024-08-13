@@ -26,7 +26,6 @@ export class AuthService {
                 body: JSON.stringify(args),
             });
             const data = await response.json();
-            console.log(data, 'data');
             return data;
         } catch (e) {
             console.log(e);

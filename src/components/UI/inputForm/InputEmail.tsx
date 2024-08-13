@@ -1,4 +1,4 @@
-import { AuthInfo } from "@/components/form/FormLogin";
+import { AuthInfo } from "@/types/types";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction } from "react";
 import imgEmail from "./../../../../public/img/envelope.svg";

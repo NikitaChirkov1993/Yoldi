@@ -1,6 +1,6 @@
-import { AuthInfo } from "@/components/form/FormLogin";
+import { AuthInfo } from "@/types/types";
 import Image from "next/image";
-import { Dispatch, FC, SetStateAction } from "react";
+import { Dispatch, FC, SetStateAction, useState } from "react";
 import imgPassword from "./../../../../public/img/Vector.svg";
 import imgEye from "./../../../../public/img/eye-solid.svg";
 import style from "./InputForm.module.css";
@@ -11,6 +11,12 @@ type InputPassword = {
 }
 
 const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const toogleShowPassword = ()=> {
+        setShowPassword(prevState => !prevState);
+    }
 
     return (
         <div className={style.wrapper__input}>
@@ -23,7 +29,7 @@ const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
             />
             <input
                 className={style.input__text}
-                type="text"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Пароль"
                 onChange={(e) => setAuthInfo({ ...authInfo, ['password']: e.target.value })}
                 value={authInfo.password}
@@ -31,6 +37,7 @@ const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
                 />
             <button className={style.icon__btn_eye}>
                 <Image
+                    onClick={toogleShowPassword}
                     alt="посмотреть"
                     src={imgEye}
                     className={style.icon__eye}

@@ -53,7 +53,6 @@ const AccountOwner = () => {
         setVisible(false);
         if (!editData.error) {
             localStorage.setItem("profileStored", JSON.stringify(editData));
-            console.log(editData, "editData");
             router.push(`/account/owner/${editData.slug}`);
         }
     }
@@ -66,15 +65,12 @@ const AccountOwner = () => {
 
         const avatarData = await api.image.postImage(formData);
         if (!avatarData.error) {
-            console.log(avatarData, "avatarData");
             const editAvatarData = await api.profile.patchProfile(authValueParsed.value, {
                 ...editInfo,
                 imageId: avatarData.id
             });
             localStorage.setItem("profileStored", JSON.stringify(editAvatarData));
             if (editAvatarData) {
-                console.log(editAvatarData,"editAvatarData");
-
                 setEditInfo({
                     ...editInfo,
                     imageId: avatarData.id
@@ -91,7 +87,6 @@ const AccountOwner = () => {
 
         const coverData = await api.image.postImage(formData);
         if (!coverData.error) {
-            console.log(coverData, "coverData");
             const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
                 ...editInfo,
                 coverId: coverData.id
@@ -108,7 +103,6 @@ const AccountOwner = () => {
 
     //Удаление cover:
     const handleCoverDelete = async () => {
-        console.log("удалить cover");
         const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
             ...editInfo,
             coverId: null
