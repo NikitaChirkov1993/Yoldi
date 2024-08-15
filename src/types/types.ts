@@ -38,7 +38,7 @@ export type RegInfo = {
 }
 
 export type ErrorType = {
-    statusCode?: number;
-    message?: string;
-    error?: string;
+    statusCode?: number | null;
+    message?: string | null;
+    error?: string | null;
 };

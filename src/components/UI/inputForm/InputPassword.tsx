@@ -8,6 +8,7 @@ import style from "./InputForm.module.css";
 type InputPassword = {
     setAuthInfo: Dispatch<SetStateAction<AuthInfo>>;
     authInfo: AuthInfo;
+
 }
 
 const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
@@ -16,6 +17,7 @@ const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
 
     const toogleShowPassword = ()=> {
         setShowPassword(prevState => !prevState);
+
     }
 
     return (
@@ -35,7 +37,7 @@ const InputPassword: FC<InputPassword> = ({ setAuthInfo, authInfo }) => {
                 value={authInfo.password}
 
                 />
-            <button className={style.icon__btn_eye}>
+            <button type="button" className={style.icon__btn_eye}>
                 <Image
                     onClick={toogleShowPassword}
                     alt="посмотреть"

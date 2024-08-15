@@ -10,6 +10,7 @@ import ButtonOwnerDelete from "@/components/ui/buttonOwnerUser/ButtonOwnerDelete
 import ButtonOwnerExit from "@/components/ui/buttonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/ui/buttonOwnerUser/ButtonOwnerRedact";
 import ButtonOwnerUploading from "@/components/ui/buttonOwnerUser/ButtonOwnerUploading";
+import Loading from "@/components/ui/loading/Loading";
 import ModalOwner from "@/components/ui/ModalOwner/ModalOwner";
 import { EditInfo } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
@@ -32,6 +33,7 @@ const AccountOwner = () => {
     const { name, letter } = getSplitName(profileParsed.name);
 
     const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
     const classCoverOwner = classNames(style.block__cover_global, style.block__coverOwner);
@@ -49,16 +51,19 @@ const AccountOwner = () => {
 
     const HandlerEditSave = async (event: React.FormEvent) => {
         event.preventDefault();
+        setLoading(true);
         const editData = await api.profile.patchProfile(authValueParsed.value, editInfo);
         setVisible(false);
         if (!editData.error) {
             localStorage.setItem("profileStored", JSON.stringify(editData));
             router.push(`/account/owner/${editData.slug}`);
+            setLoading(false);
         }
     }
 
     //ОТПРАВКА КАРТИНОК:
     const handleAvatarChange = async (event) => {
+        setLoading(true);
         const selectedAvatar = event.target.files[0]
         const formData = new FormData();
         formData.append("file", selectedAvatar);
@@ -69,6 +74,7 @@ const AccountOwner = () => {
                 ...editInfo,
                 imageId: avatarData.id
             });
+            setLoading(false);
             localStorage.setItem("profileStored", JSON.stringify(editAvatarData));
             if (editAvatarData) {
                 setEditInfo({
@@ -80,6 +86,7 @@ const AccountOwner = () => {
     };
 
     const handleCoverChange = async (event) => {
+        setLoading(true);
         const selectedCover = event.target.files[0]
 
         const formData = new FormData();
@@ -91,6 +98,7 @@ const AccountOwner = () => {
                 ...editInfo,
                 coverId: coverData.id
             });
+            setLoading(false);
             localStorage.setItem("profileStored", JSON.stringify(editCoverData));
             if (editCoverData) {
                 setEditInfo({
@@ -103,6 +111,7 @@ const AccountOwner = () => {
 
     //Удаление cover:
     const handleCoverDelete = async () => {
+        setLoading(true);
         const editCoverData = await api.profile.patchProfile(authValueParsed.value, {
             ...editInfo,
             coverId: null
@@ -112,7 +121,8 @@ const AccountOwner = () => {
                 setEditInfo({
                     ...editInfo,
                     coverId: null
-                })
+                });
+                setLoading(false);
             }
 
     }
@@ -122,6 +132,7 @@ const AccountOwner = () => {
     return (
         <div className="wrapper__yoldi">
             <Header />
+            {loading && <Loading/>}
             <main className={style.mainAccount}>
                 <ModalOwner visible={visible} setVisible={setVisible}>
                     <h3 className={style.form__title}>Редактировать профиль</h3>

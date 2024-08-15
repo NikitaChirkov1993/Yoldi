@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import InputEmailRegister from "../ui/inputForm/InputEmailRegister";
 import InputPasswordRegister from "../ui/inputForm/inputPasswordRegister";
+import Loading from "../ui/loading/Loading";
 import style from "./Form.module.css";
 
 const FormRegister = () => {
@@ -15,6 +16,7 @@ const FormRegister = () => {
     const [isDisabled, setIsDisabled] = useState(true);
     const router = useRouter();
     const [error, setError] = useState<ErrorType>();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (regInfo.name.length >= 3) {
@@ -30,26 +32,28 @@ const FormRegister = () => {
         }
         else {
             setIsDisabled(true);
-            setError({})
+            setError(undefined);
         }
 
     }, [regInfo])
 
     const submitHandlerReg = async (event: React.FormEvent) => {
         event.preventDefault();
+        setLoading(true);
         const authData = await api.auth.register(regInfo);
         if (authData.message) {
             setError({ message: authData.message });
+            setLoading(false);
         } else if (!authData.error) {
             router.push('/login');
+            setLoading(false);
         }
     }
-    console.log(error,"ОШИБКА ОШИБКА");
-
 
     return (
         <form onSubmit={submitHandlerReg} className={style.form}>
             <h2 className={style.form__title}>Регистрация в Yoldi Agency</h2>
+            {loading && <Loading/>}
 
             {error ? <p style={{ color: "red" }}>{ error.message}</p> : null}
             <InputNameRegister setRegInfo={setRegInfo} regInfo={regInfo} />

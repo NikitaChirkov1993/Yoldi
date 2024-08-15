@@ -3,6 +3,7 @@
 import { api } from "@/api/api";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
+import Loading from "@/components/ui/loading/Loading";
 import UserItem from "@/components/userItem/UserItem";
 import UserList from "@/components/userList/UserList";
 import { User } from "@/types/types";
@@ -13,12 +14,15 @@ import style from './styles.module.css';
 const Accounts = () => {
 
     const [data, setData] = useState<User[]>([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             const usersData = await api.users.getUsers();
             if (usersData) {
                 setData(usersData);
+                setLoading(false);
             }
         };
         fetchData();
@@ -27,6 +31,7 @@ const Accounts = () => {
     return (
         <div className="wrapper__yoldi">
             <Header />
+            {loading && <Loading/>}
             <main className={style.main__master}>
                 <div className={style.container__master}>
                     <h1 className={style.title__master}>Список аккаунтов</h1>
