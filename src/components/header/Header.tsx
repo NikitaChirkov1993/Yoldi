@@ -1,6 +1,6 @@
 "use client";
 
-import { User } from "@/app/accounts/page";
+import { User } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonHeader from "../ui/buttonHeader/ButtonHeader";

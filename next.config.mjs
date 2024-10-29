@@ -13,7 +13,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/account/guest',
+        source: '/',
         destination: '/accounts',
         permanent: true,
       },
