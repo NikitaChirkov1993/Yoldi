@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { useState } from "react";
 
 import { api } from "@/api/api";
-import EditProfile from "@/components/Form/EditProfile/EditProfile";
+import EditProfile from "@/components/Form1/EditProfile/EditProfile";
 import ButtonOwnerDelete from "@/components/UI/ButtonOwnerUser/ButtonOwnerDelete";
 import ButtonOwnerExit from "@/components/UI/ButtonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/UI/ButtonOwnerUser/ButtonOwnerRedact";
