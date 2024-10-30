@@ -1,4 +1,4 @@
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/Footer1/Footer";
 import FormLogin from "@/components/Form/FormLogin";
 import Header from "@/components/Header/Header";
 

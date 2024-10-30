@@ -1,7 +1,7 @@
 "use client";
 
 import { api } from "@/api/api";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/Footer1/Footer";
 import Header from "@/components/Header/Header";
 import Loading from "@/components/UI/Loading/Loading";
 import UserItem from "@/components/UserItem/UserItem";
