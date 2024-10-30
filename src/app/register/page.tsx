@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import FormRegister from "@/components/Form1/FormRegister";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header1/Header";
 
 const Register = () => {
     return (

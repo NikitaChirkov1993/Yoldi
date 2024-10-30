@@ -2,10 +2,10 @@
 
 import { api } from "@/api/api";
 import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import Loading from "@/components/UI/Loading/Loading";
-import UserItem from "@/components/UserItem/UserItem";
-import UserList from "@/components/UserList/UserList";
+import Header from "@/components/Header1/Header";
+import Loading from "@/components/UI/Loading1/Loading";
+import UserItem from "@/components/UserItem1/UserItem";
+import UserList from "@/components/UserList1/UserList";
 import { User } from "@/types/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";

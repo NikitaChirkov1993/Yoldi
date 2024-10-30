@@ -1,6 +1,6 @@
 // import { EditInfo } from "@/app/account/owner/[slug]/page";
-import ButtonCancel from "@/components/UI/ButtonOwnerUser/ButtonRedactProfile/ButtonCancel";
-import ButtonSave from "@/components/UI/ButtonOwnerUser/ButtonRedactProfile/ButtonSave";
+import ButtonCancel from "@/components/UI/ButtonOwnerUser1/ButtonRedactProfile1/ButtonCancel";
+import ButtonSave from "@/components/UI/ButtonOwnerUser1/ButtonRedactProfile1/ButtonSave";
 import { EditInfo } from "@/types/types";
 import { Dispatch, FC, SetStateAction } from "react";
 import style from "./EditProfile.module.css";

@@ -4,11 +4,10 @@ import { User } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-// import ButtonHeader from "../UI/buttonHeader/ButtonHeader";
+import ButtonHeader from "../UI/ButtonHeader1/ButtonHeader";
 import logo from "./../../../public/img/logo-wrapper.jpg";
+import Avatar from "./Avatar1/Avatar";
 import style from "./Header.module.css";
-import Avatar from "./Avatar/Avatar";
-import ButtonHeader from "../UI/ButtonHeader/ButtonHeader";
 
 const Header = () => {
     const [profileParsed, setProfileParsed] = useState<User | null>(null);
