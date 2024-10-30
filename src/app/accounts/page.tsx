@@ -3,7 +3,7 @@
 import { api } from "@/api/api";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import Loading from "@/components/ui/Loading/Loading";
+import Loading from "@/components/UI/loading/Loading";
 import UserItem from "@/components/userItem/UserItem";
 import UserList from "@/components/userList/UserList";
 import { User } from "@/types/types";
