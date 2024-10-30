@@ -3,14 +3,21 @@
 import { User } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import ButtonHeader from "../ui/buttonHeader/ButtonHeader";
 import logo from "./../../../public/img/logo-wrapper.jpg";
 import style from "./Header.module.css";
 import Avatar from "./avatar/Avatar";
 
 const Header = () => {
-    const profileStored = localStorage.getItem("profileStored");
-    const profileParsed: User | null = profileStored ? JSON.parse(profileStored) : null;
+    const [profileParsed, setProfileParsed] = useState<User | null>(null);
+
+    useEffect(() => {
+        const profileStored = localStorage.getItem("profileStored");
+        if (profileStored) {
+            setProfileParsed(JSON.parse(profileStored) as User);
+        }
+    }, []);
 
     return (
         <header className={style.header}>
