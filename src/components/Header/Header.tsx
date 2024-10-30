@@ -4,9 +4,9 @@ import { User } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ButtonHeader from "../UI/ButtonHeader1/ButtonHeader";
+import ButtonHeader from "../UI/ButtonHeader/ButtonHeader";
 import logo from "./../../../public/img/logo-wrapper.jpg";
-import Avatar from "./Avatar1/Avatar";
+import Avatar from "./Avatar/Avatar";
 import style from "./Header.module.css";
 
 const Header = () => {

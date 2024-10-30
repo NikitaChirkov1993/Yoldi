@@ -1,13 +1,13 @@
 "use client"
 
 import { api } from "@/api/api";
-import ButtonForm from "@/components/UI/ButtonForm1/ButtonForm";
-import InputEmail from "@/components/UI/InputForm1/InputEmail";
-import InputPassword from "@/components/UI/InputForm1/InputPassword";
+import ButtonForm from "@/components/UI/ButtonForm/ButtonForm";
+import InputEmail from "@/components/UI/InputForm/InputEmail";
+import InputPassword from "@/components/UI/InputForm/InputPassword";
 import { AuthInfo, ErrorType } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loading from "../UI/Loading1/Loading";
+import Loading from "../UI/Loading/Loading";
 import style from "./Form.module.css";
 
 const FormLogin = () => {

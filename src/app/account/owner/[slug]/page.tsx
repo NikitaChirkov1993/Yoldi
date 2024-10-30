@@ -1,17 +1,17 @@
 "use client";
 
-import Header from "@/components/Header1/Header";
+import Header from "@/components/Header/Header";
 import classNames from "classnames";
 import { useState } from "react";
 
 import { api } from "@/api/api";
-import EditProfile from "@/components/Form1/EditProfile/EditProfile";
-import ButtonOwnerDelete from "@/components/UI/ButtonOwnerUser1/ButtonOwnerDelete";
-import ButtonOwnerExit from "@/components/UI/ButtonOwnerUser1/ButtonOwnerExit";
-import ButtonOwnerRedact from "@/components/UI/ButtonOwnerUser1/ButtonOwnerRedact";
-import ButtonOwnerUploading from "@/components/UI/ButtonOwnerUser1/ButtonOwnerUploading";
-import Loading from "@/components/UI/Loading1/Loading";
-import ModalOwner from "@/components/UI/ModalOwner1/ModalOwner";
+import EditProfile from "@/components/Form/EditProfile/EditProfile";
+import ButtonOwnerDelete from "@/components/UI/ButtonOwnerUser/ButtonOwnerDelete";
+import ButtonOwnerExit from "@/components/UI/ButtonOwnerUser/ButtonOwnerExit";
+import ButtonOwnerRedact from "@/components/UI/ButtonOwnerUser/ButtonOwnerRedact";
+import ButtonOwnerUploading from "@/components/UI/ButtonOwnerUser/ButtonOwnerUploading";
+import Loading from "@/components/UI/Loading/Loading";
+import ModalOwner from "@/components/UI/ModalOwner/ModalOwner";
 import { EditInfo } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
 import Link from "next/link";

@@ -1,8 +1,8 @@
 "use client";
 
 import { api } from "@/api/api";
-import Header from "@/components/Header1/Header";
-import Loading from "@/components/UI/Loading1/Loading";
+import Header from "@/components/Header/Header";
+import Loading from "@/components/UI/Loading/Loading";
 import { User } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
 import classNames from "classnames";
