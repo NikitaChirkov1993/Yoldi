@@ -1,11 +1,11 @@
 "use client";
 
 import { api } from "@/api/api";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
-import Loading from "@/components/UI/loading/Loading";
-import UserItem from "@/components/userItem/UserItem";
-import UserList from "@/components/userList/UserList";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
+import Loading from "@/components/UI/Loading/Loading";
+import UserItem from "@/components/UserItem/UserItem";
+import UserList from "@/components/UserList/UserList";
 import { User } from "@/types/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
