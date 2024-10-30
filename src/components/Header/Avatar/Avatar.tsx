@@ -1,4 +1,4 @@
-import { User } from "@/app/accounts/page";
+import { User } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
 import Link from "next/link";
 import { FC } from "react";

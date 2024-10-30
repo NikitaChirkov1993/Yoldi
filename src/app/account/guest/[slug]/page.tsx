@@ -21,7 +21,7 @@ const AccountGuest = ({ params }: { params: { slug: string } }) => {
         };
 
         fetchData();
-    }, []);
+    }, [params.slug]);
 
     if (!data) {
         return <Loading />;
