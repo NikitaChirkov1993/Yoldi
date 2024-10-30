@@ -7,7 +7,7 @@ import InputPassword from "@/components/ui/inputForm/InputPassword";
 import { AuthInfo, ErrorType } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loading from "../ui/loading/Loading";
+import Loading from "../ui/Loading/Loading";
 import style from "./Form.module.css";
 
 const FormLogin = () => {

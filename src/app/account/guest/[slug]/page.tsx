@@ -2,7 +2,7 @@
 
 import { api } from "@/api/api";
 import Header from "@/components/header/Header";
-import Loading from "@/components/ui/loading/Loading";
+import Loading from "@/components/ui/Loading/Loading";
 import { User } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
 import classNames from "classnames";

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import InputEmailRegister from "../ui/inputForm/InputEmailRegister";
 import InputPasswordRegister from "../ui/inputForm/inputPasswordRegister";
-import Loading from "../ui/loading/Loading";
+import Loading from "../ui/Loading/Loading";
 import style from "./Form.module.css";
 
 const FormRegister = () => {
