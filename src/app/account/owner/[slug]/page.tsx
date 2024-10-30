@@ -6,12 +6,12 @@ import { useState } from "react";
 
 import { api } from "@/api/api";
 import EditProfile from "@/components/form/EditProfile/EditProfile";
-import ButtonOwnerDelete from "@/components/ui/ButtonOwnerUser/ButtonOwnerDelete";
-import ButtonOwnerExit from "@/components/ui/ButtonOwnerUser/ButtonOwnerExit";
-import ButtonOwnerRedact from "@/components/ui/ButtonOwnerUser/ButtonOwnerRedact";
-import ButtonOwnerUploading from "@/components/ui/ButtonOwnerUser/ButtonOwnerUploading";
+import ButtonOwnerDelete from "@/components/UI/buttonOwnerUser/ButtonOwnerDelete";
+import ButtonOwnerExit from "@/components/UI/buttonOwnerUser/ButtonOwnerExit";
+import ButtonOwnerRedact from "@/components/UI/buttonOwnerUser/ButtonOwnerRedact";
+import ButtonOwnerUploading from "@/components/UI/buttonOwnerUser/ButtonOwnerUploading";
 import Loading from "@/components/UI/loading/Loading";
-import ModalOwner from "@/components/ui/ModalOwner/ModalOwner";
+import ModalOwner from "@/components/UI/ModalOwner/ModalOwner";
 import { EditInfo } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
 import Link from "next/link";

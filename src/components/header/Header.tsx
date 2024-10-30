@@ -4,7 +4,7 @@ import { User } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ButtonHeader from "../ui/buttonHeader/ButtonHeader";
+import ButtonHeader from "../UI/buttonHeader/ButtonHeader";
 import logo from "./../../../public/img/logo-wrapper.jpg";
 import style from "./Header.module.css";
 import Avatar from "./avatar/Avatar";
