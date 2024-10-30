@@ -10,7 +10,7 @@ import ButtonOwnerDelete from "@/components/ui/ButtonOwnerUser/ButtonOwnerDelete
 import ButtonOwnerExit from "@/components/ui/ButtonOwnerUser/ButtonOwnerExit";
 import ButtonOwnerRedact from "@/components/ui/ButtonOwnerUser/ButtonOwnerRedact";
 import ButtonOwnerUploading from "@/components/ui/ButtonOwnerUser/ButtonOwnerUploading";
-import Loading from "@/components/ui/Loading/Loading";
+import Loading from "@/components/UI/loading/Loading";
 import ModalOwner from "@/components/ui/ModalOwner/ModalOwner";
 import { EditInfo } from "@/types/types";
 import { getSplitName } from "@/utils/utils";
